@@ -12,9 +12,11 @@ const Api = require("../apis/api");
 
 /* GET home page. */
 router.get('/', (req, res)=> {
-  
-  res.render('index')
+  res.render('index', req.session.username)
+
 });
+
+
 
 /* GET from API */
 router.get('/api', (req, res)=> {
