@@ -1,9 +1,11 @@
-<h1>Memers list</h1>
+
+<h1>List of memers</h1>
 
 <ul>
     {{#each users}}
-    <a href="/users/profile/{{_id}}">
-    <li>{{this.username}}</li>
-    </a>
+        <li>
+            <a href="/users/profile/{{_id}}">{{this.username}}</a>
+        </li>
+
     {{/each}}
 </ul>

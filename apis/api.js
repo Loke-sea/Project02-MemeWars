@@ -9,8 +9,7 @@ class Api {
     )
   }
   // CHANGE THE PATHS ACCORIDNG TO API DOCUEMNTATION
-  getAll = () => this.api.get("/")
-  getOne = (id)=> this.api.get(`/${id}`)
+  getSearch = (keyWords)=> this.api.get(`search?${process.env.API_KEY}&keywords=${keyWords}&number=10`)
   createOne = (newEntityValues)=>this.api.post("/", newEntityValues)
   deleteOne = (id)=> this.api.delete(`/${id}`)
   updateOne = (id)=> this.api.put(`/${id}`)

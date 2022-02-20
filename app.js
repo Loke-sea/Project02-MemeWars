@@ -5,8 +5,12 @@ var express = require('express');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/auth');
-var memersRouter = require('./routes/memers');
+
 var profileRouter = require('./routes/users');
+
+var searchRouter = require('./routes/search');
+var memersRouter = require('./routes/memers');
+var battlesRouter = require('./routes/battles');
 
 
 var app = express();
@@ -15,10 +19,14 @@ var app = express();
 require('./config/db')
 require('./config/global')(app)
 
+
+app.use('/users', profileRouter)
 app.use('/', indexRouter);
 app.use('/auth', usersRouter);
+app.use('/search', searchRouter);
 app.use('/memers', memersRouter);
-app.use('/users', profileRouter)
+app.use('/battles', battlesRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

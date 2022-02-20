@@ -5,19 +5,24 @@ var express = require('express');
 var router = express.Router();
 
 const User = require("../models/User.model")
-const Api = require("../apis/api")
+const Api = require("../apis/api");
+
+//const isLoggedOut = require('../middleware/isLoggedOut');
+//const isLoggedIn = require("../middleware/isLoggedIn")
 
 /* GET home page. */
 router.get('/', (req, res)=> {
   res.render('index', req.session.username)
+
 });
 
 
 
 /* GET from API */
 router.get('/api', (req, res)=> {
-  Api.getAll().then((entity)=>
-  res.render('index', { title: 'Express', users: entity})
+  Api.getSearch().then((url)=>{
+    res.render('index', { title: 'Express', users: url})
+  }
 );
 });
 
