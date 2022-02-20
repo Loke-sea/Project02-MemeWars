@@ -24,9 +24,9 @@ const userSchema = new Schema({
 	description: {
 		type: String
 	},
-	memes: {
-		type: []
-	}
+	memes: [{
+		type: Schema.Types.ObjectId, ref: "Meme" 
+	}]
 }, 
 {
 	timestamps: true

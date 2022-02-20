@@ -18,6 +18,6 @@ const battleSchema = new Schema({
     timestamps: true
 });
 
-const User = model('Battle', battleSchema);
+const Battle = model('Battle', battleSchema);
 
 module.exports = Battle;
