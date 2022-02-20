@@ -5,8 +5,10 @@ var express = require('express');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/auth');
+var searchRouter = require('./routes/search');
 var memersRouter = require('./routes/memers');
 var battlesRouter = require('./routes/battles');
+
 
 
 var app = express();
@@ -19,6 +21,7 @@ require('./config/global')(app)
 
 app.use('/', indexRouter);
 app.use('/auth', usersRouter);
+app.use('/search', searchRouter);
 app.use('/memers', memersRouter);
 app.use('/battles', battlesRouter);
 

@@ -18,8 +18,9 @@ router.get('/', (req, res)=> {
 
 /* GET from API */
 router.get('/api', (req, res)=> {
-  Api.getAll().then((entity)=>
-  res.render('index', { title: 'Express', users: entity})
+  Api.getSearch().then((url)=>{
+    res.render('index', { title: 'Express', users: url})
+  }
 );
 });
 
