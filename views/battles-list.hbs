@@ -1,0 +1,11 @@
+<h1>List of battles</h1>
+
+<ul>
+    {{#each battles}}
+    <li>
+        <a href="/battles/battle/{{_id}}">{{this.title}}</a>  
+    </li>
+    {{/each}}
+</ul>
+
+<a href="/battles/create-battle">Create battle</a>
