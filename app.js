@@ -5,6 +5,7 @@ var express = require('express');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/auth');
+var searchRouter = require('./routes/search');
 
 
 
@@ -19,6 +20,7 @@ require('./config/global')(app)
 
 app.use('/', indexRouter);
 app.use('/auth', usersRouter);
+app.use('/search', searchRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
