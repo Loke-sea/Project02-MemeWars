@@ -8,7 +8,7 @@ router.route("/battles")
     .get((req, res)=>{
        Battles.find()
         .then((battles)=>{
-            res.render("battles-list", {battles})
+            res.render("battles-list", {battles, _id: req.session.username._id})
         })
     })
 

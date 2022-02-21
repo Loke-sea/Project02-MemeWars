@@ -9,7 +9,7 @@ const Meme = require("../models/Meme.model");
 router.route("/:id")
 .get((req, res)=>{
     const id = req.params.id
-    User.findById(id)
+    User.findById(id).populate("memes")
     
     .then((user)=>{
         console.log(user)
@@ -20,12 +20,17 @@ router.route("/:id")
 
 .post((req, res)=>{
     
-    const id = req.params.id;
+    const userId = req.params.id;
     const {name, imageUrl} = req.body
-    Meme.create({name, imageUrl})
-    .then((user)=>{
+    Meme
+    .create({name, imageUrl})
+    .then((newMeme)=>{
+        const newMemeId = newMeme._id.toString();
+        User
+        .findByIdAndUpdate(userId, {$push:{memes: newMemeId}}, {new:true})
+        //.populate("Meme")
+        .then(res.redirect(`/users/memes/${userId}`))
         
-        res.render("users/memes", {user})
     })
 
 

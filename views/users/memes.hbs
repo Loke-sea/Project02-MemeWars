@@ -14,3 +14,12 @@
     <button type="submit">Save changes</button>
 </form>
 
+<ul>
+    {{#each user.memes}}
+    <li>
+        <img src="{{this.imageUrl}}" style="width: 300px">
+        
+    </li>
+    {{/each}}
+</ul>
+
