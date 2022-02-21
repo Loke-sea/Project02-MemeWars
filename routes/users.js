@@ -9,7 +9,9 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 const isLoggedOut = require("../middleware/isLoggedOut");
 const fileUploader = require("../config/cloudinary");
 
-//*****PROFILE********/
+// ***************** SHOW PROFILE *************** //
+//************************************************************* //
+
 router.get("/profile/:id", (req, res) => {
   const id = req.params.id;
   User.findById(id).then((user) => {
@@ -17,19 +19,25 @@ router.get("/profile/:id", (req, res) => {
   });
 });
 
-//*****EDIT PROFILE***********/
-
 router
-  .route("/profile/edit/:id")
-  .get((req, res) => {
-    const id = req.params.id;
+.get("/profile", (req, res)=>{
+    res.redirect("/")
+})
 
-    User.findById(id).then((user) => {
-      res.render("users/edit-profile", { user });
-    });
-  })
+// ***************** EDIT PROFILE *************** //
+//************************************************************* //
 
-  .post(fileUploader.single("profilePic"), (req, res) => {
+
+router.route("/profile/edit/:id")
+.get((req, res)=>{
+    const id = req.params.id
+    User.findById(id)
+    .then((user)=>{
+        res.render("users/edit-profile", {user})
+    })
+})
+
+.post(fileUploader.single("profilePic"), (req, res) => {
     const id = req.params.id;
     const { username, email, description } = req.body;
     const profilePic = req.file && req.file.path
@@ -44,3 +52,6 @@ router
   });
 
 module.exports = router;
+
+
+

@@ -14,7 +14,7 @@ const bcrypt = require("bcrypt");
 
 /* GET users listing. */
 router.route("/signup")
-  .get((req, res) => {
+  .get(isLoggedOut ,(req, res)  => {
     res.render("auth/signup")
   })
   .post((req, res) => {
@@ -97,7 +97,7 @@ router.route("/signup")
 //----LOGIN----\\
 router.get("/login", isLoggedOut, (req, res) => {
   res.render("auth/login", {
-    errorMessage: "no user logged in"
+    loggedout: true
   });
 });
 
