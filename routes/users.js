@@ -9,23 +9,33 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 const isLoggedOut = require("../middleware/isLoggedOut");
 
 
-//*****PROFILE********/
+// ***************** SHOW PROFILE *************** //
+//************************************************************* //
+
 router
-.get("/profile/:id",(req, res)=>{
+.get("/profile/:id", (req, res)=>{
     const id = req.params.id
     User.findById(id)
+    
     .then((user)=>{
+        //console.log(req.params.id)
         res.render("users/profile", {user})
     })
 })
 
+router
+.get("/profile", (req, res)=>{
+    res.redirect("/")
+})
 
-//*****EDIT PROFILE***********/
+
+
+// ***************** EDIT PROFILE *************** //
+//************************************************************* //
 
 router.route("/profile/edit/:id")
 .get((req, res)=>{
     const id = req.params.id
-  
     User.findById(id)
     .then((user)=>{
         res.render("users/edit-profile", {user})
@@ -44,6 +54,10 @@ router.route("/profile/edit/:id")
             res.redirect(`/users/profile/${id}`)
         })
 })
+
+// ***************** SHOW A USER'S LIST OF MEMES *************** //
+//************************************************************* //
+
 
 
 

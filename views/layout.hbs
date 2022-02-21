@@ -25,10 +25,14 @@
       
           <span class="sr-only">(current)</span>
         </a>
+        {{#if loggedout}}
           <a class="nav-item nav-link" href="/memers/memers">Memers</a>
          <a class="nav-item nav-link" href="/battles/battles">Battles</a>
+         {{else}}
+         <a class="nav-item nav-link" href="/memers/memers">Memers</a>
+         <a class="nav-item nav-link" href="/battles/battles">Battles</a>
          <a class="nav-item nav-link" href="/users/profile/{{_id}}">My profile</a>
-       
+        {{/if}}
        
         <form method="POST" action="/search">
           <input type="text" name="search">
