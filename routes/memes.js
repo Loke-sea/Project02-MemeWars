@@ -11,7 +11,6 @@ router.route("/:id")
 .get((req, res)=>{
     const userId = req.params.id
     User.findById(userId)
-    
     .then((user)=>{
         res.render("users/memes", {user})
     })
