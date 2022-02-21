@@ -14,8 +14,8 @@ router.post('/add/:id', (req, res) => {
         User
         .findByIdAndUpdate(userId, {$push:{memes: newMemeId}}, {new:true})
         // .populate("Meme")
+        .then(res.redirect("/"))  
     })
-    .then(res.redirect("/")) 
 })
 
 module.exports = router
