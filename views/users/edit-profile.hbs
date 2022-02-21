@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
       <div class="col-md-6">
 
-        <form action="/users/profile/edit/{{user._id}}" method="POST">
+        <form action="/users/profile/edit/{{user._id}}" method="POST"  enctype="multipart/form-data">
 
           <label for="username">Username:</label>
           <input type="text" name="username" id="username" 
@@ -17,6 +17,10 @@
 
           <label for="description">Description:</label>
           <textarea name="description" id="description" cols="30" rows="4" >{{user.description}}</textarea>
+
+          <label for="profilePic">Image
+          <input type="file" name="profilePic" />
+          </label>
 
           <button type="submit">Save changes</button>
 
