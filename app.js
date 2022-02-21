@@ -11,7 +11,10 @@ var profileRouter = require('./routes/users');
 var searchRouter = require('./routes/search');
 var memersRouter = require('./routes/memers');
 var battlesRouter = require('./routes/battles');
+
+var likesRouter = require('./routes/likes');
 var memesRouter = require('./routes/memes')
+
 
 
 var app = express();
@@ -21,12 +24,13 @@ require('./config/db')
 require('./config/global')(app)
 
 
-app.use('/users', profileRouter)
 app.use('/', indexRouter);
+app.use('/users', profileRouter)
 app.use('/auth', usersRouter);
 app.use('/search', searchRouter);
 app.use('/memers', memersRouter);
 app.use('/battles', battlesRouter);
+app.use('/likes', likesRouter);
 app.use('/users/memes', memesRouter)
 
 

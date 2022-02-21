@@ -36,8 +36,8 @@
          <a class="nav-item nav-link" href="/users/profile/{{_id}}">My profile</a>
         {{/if}}
        
-        <form method="POST" action="/search">
-          <input type="text" name="search">
+        <form method="get" action="/search">
+          <input type="text" name="keywords">
           <button type="submit">Search</button>
         </form>
 

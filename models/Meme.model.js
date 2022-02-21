@@ -7,7 +7,7 @@ const memeSchema = new Schema({
     
     name: {
         type: String,
-        required: true
+        default: "Meme"
     },
     battles: [],
     imageUrl: {

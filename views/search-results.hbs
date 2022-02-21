@@ -1,8 +1,9 @@
-<div class="card-group">
-    <div class="card">
-        {{#each resultsArray}}
-        <img class="card-img-top" style="width: 300px;" src="{{url}}" alt="" srcset="">
-        <hr>
-        {{/each}}
-    </div>
-</div>
+{{#each resultsArray}}
+<img style="width: 300px" src="{{url}}" alt="" srcset="">
+<form action="/likes/add/{{id}}" method="post">
+    <input type="text" name="imageUrl" value="{{url}}" style="display: none;">
+    <button type="submit">
+        like
+    </button>
+</form>
+{{/each}}
