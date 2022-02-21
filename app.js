@@ -1,5 +1,7 @@
 require('dotenv').config()
 
+const hbs = require("hbs");
+
 var createError = require('http-errors');
 var express = require('express');
 
@@ -49,5 +51,9 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+// ---------------- REGISTER PARTIALS -------------------- \\
+hbs.registerPartials(__dirname + "/views/partials");
 
 module.exports = app;

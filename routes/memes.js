@@ -9,8 +9,9 @@ const fileUploader = require("../config/cloudinary");
 
 router.route("/:id")
 .get((req, res)=>{
+
     const userId = req.params.id
-    User.findById(userId)
+    User.findById(userId).populate("memes")
     .then((user)=>{
         res.render("users/memes", {user})
     })
@@ -21,6 +22,7 @@ router.route("/:id")
     const userId = req.params.id;
     const imageUrl = req.file && req.file.path
     
+
     Meme
     .create({imageUrl})
     .then((newMeme)=>{
@@ -28,6 +30,7 @@ router.route("/:id")
         const newMemeId = newMeme._id.toString()
         User.findByIdAndUpdate(userId, {$push:{memes : newMemeId}}, {new : true})
         .then(res.redirect(`/users/memes/${userId}`))
+
     })
 })
 
