@@ -9,7 +9,6 @@ router.route("/memers")
     .get((req, res)=>{
         User.find()
         .then((users)=>{
-            console.log(users)
             res.render("memers-list", {users})
         })
     })

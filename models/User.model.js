@@ -6,7 +6,7 @@ const {
 // TODO: Please make sure you edit the user model to whatever makes sense in this case
 const userSchema = new Schema({
 	username: {
-		type: String,
+		type: String, 
 		required: true,
 		unique: true
 	},
@@ -19,7 +19,8 @@ const userSchema = new Schema({
 		required: true
 	},
 	profilePic: {
-		type: String
+		type: String,
+		default: "https://cdn3.iconfinder.com/data/icons/vector-icons-6/96/256-1024.png"
 	},
 	description: {
 		type: String

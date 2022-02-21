@@ -8,7 +8,6 @@ router.route("/battles")
     .get((req, res)=>{
        Battles.find()
         .then((battles)=>{
-            console.log(battles)
             res.render("battles-list", {battles})
         })
     })
@@ -26,7 +25,6 @@ router.post("/create-battle", (req, res)=>{
 // ---------------- DISPLAY A BATTLE DETAILS
 
 router.get("/battle/:id", (req, res)=>{
-    console.log("hello")
     const id = req.params.id
     Battles.findById(id)
     .then((battle)=>{
