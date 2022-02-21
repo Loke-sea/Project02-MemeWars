@@ -5,38 +5,33 @@ const mongoose = require("mongoose");
 
 const User = require("../models/User.model");
 const Meme = require("../models/Meme.model");
+const fileUploader = require("../config/cloudinary");
 
 router.route("/:id")
 .get((req, res)=>{
-    const id = req.params.id
-    User.findById(id).populate("memes")
-    
+
+    const userId = req.params.id
+    User.findById(userId).populate("memes")
     .then((user)=>{
-        console.log(user)
-        
         res.render("users/memes", {user})
     })
 })
 
-.post((req, res)=>{
-    
+.post(fileUploader.single("imageUrl"), (req, res) => {
+    //const name = req.body
     const userId = req.params.id;
-    const {name, imageUrl} = req.body
+    const imageUrl = req.file && req.file.path
+    
+
     Meme
-    .create({name, imageUrl})
+    .create({imageUrl})
     .then((newMeme)=>{
-        const newMemeId = newMeme._id.toString();
-        User
-        .findByIdAndUpdate(userId, {$push:{memes: newMemeId}}, {new:true})
-        //.populate("Meme")
+        // console.log("NEW MEME", newMeme);
+        const newMemeId = newMeme._id.toString()
+        User.findByIdAndUpdate(userId, {$push:{memes : newMemeId}}, {new : true})
         .then(res.redirect(`/users/memes/${userId}`))
-        
+
     })
-
-
 })
-
-
-
 
 module.exports = router;

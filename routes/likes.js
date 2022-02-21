@@ -13,9 +13,9 @@ router.post('/add/:id', (req, res) => {
         const newMemeId = newMeme._id.toString();
         User
         .findByIdAndUpdate(userId, {$push:{memes: newMemeId}}, {new:true})
-        //.populate("Meme")
-        .then(res.redirect("/")) 
-        
+
+        // .populate("Meme")
+        .then(res.redirect("/"))  
     })
 })
 

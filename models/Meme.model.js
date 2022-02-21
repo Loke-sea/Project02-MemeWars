@@ -5,10 +5,10 @@ const {
 
 const memeSchema = new Schema({
     
-    name: {
-        type: String,
-        default: "Meme"
-    },
+    // name: {
+    //     type: String,
+    //     default: "Meme"
+    // },
     battles: [],
     imageUrl: {
         type: String,
