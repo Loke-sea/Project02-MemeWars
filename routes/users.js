@@ -15,7 +15,7 @@ const fileUploader = require("../config/cloudinary");
 router.get("/profile/:id", (req, res) => {
   const id = req.params.id;
   User.findById(id).then((user) => {
-    res.render("users/profile", { user });
+    res.render("users/profile", {user, _id: req.session.username._id});
   });
 });
 
