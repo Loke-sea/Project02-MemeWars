@@ -5,15 +5,17 @@ const User = require("../models/User.model")
 const Meme = require("../models/Meme.model")
 const Api = require("../apis/api");
 
-router.post('/add/:url', (req, res) => {
+router.post('/add/:id', (req, res) => {
     const url = req.body.imageUrl
     const userId = req.session.username._id
     Meme.create({imageUrl: url})
-    .then(User.findByIdAndUpdate(userId, {$push:{memes: url}}))
+    .then((newMeme)=>{
+        const newMemeId = newMeme._id.toString();
+        User
+        .findByIdAndUpdate(userId, {$push:{memes: newMemeId}}, {new:true})
+        // .populate("Meme")
+    })
     .then(res.redirect("/")) 
-    // Meme.create({ imageUrl: url
- 
-    //     .then(() => res.redirect(url))
 })
 
 module.exports = router
