@@ -12,8 +12,13 @@ const Api = require("../apis/api");
 
 /* GET home page. */
 router.get('/', (req, res)=> {
-  res.render('index', req.session.username)
-
+  if(req.session.username === undefined){
+    res.render('index', {loggedout: true})
+  }
+  else{
+    // let loggedout = false ------ NO HACE NADA
+    res.render('index', req.session.username)
+   } 
 });
 
 

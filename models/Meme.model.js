@@ -4,7 +4,7 @@ const {
 } = require('mongoose');
 
 const memeSchema = new Schema({
-
+    
     name: {
         type: String,
         default: "Meme"

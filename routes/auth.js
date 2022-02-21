@@ -14,7 +14,7 @@ const bcrypt = require("bcrypt");
 
 /* GET users listing. */
 router.route("/signup")
-  .get((req, res) => {
+  .get(isLoggedOut ,(req, res)  => {
     res.render("auth/signup")
   })
   .post((req, res) => {
@@ -97,7 +97,7 @@ router.route("/signup")
 //----LOGIN----\\
 router.get("/login", isLoggedOut, (req, res) => {
   res.render("auth/login", {
-    errorMessage: "no user logged in"
+    loggedout: true
   });
 });
 
@@ -133,7 +133,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
         }
         req.session.username = username;
         // req.session.user = user._id; // ! better and safer but in this case we saving the entire user object
-        //console.log(req.session)
+      
         return res.redirect("/");
       });
     })
@@ -150,14 +150,13 @@ router.post("/login", isLoggedOut, (req, res, next) => {
 
 //----LOGOUT----\\
 router.get("/logout", isLoggedIn, (req, res) => {
-  console.log("THERE IS SESSION")
+ 
   req.session.destroy((err) => {
     if (err) {
       return res
         .status(500)
         .render("../logout", { errorMessage: err.message });
     }
-    console.log(req.session);
     res.redirect("/");
   });
 });

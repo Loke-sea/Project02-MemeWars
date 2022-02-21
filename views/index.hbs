@@ -3,24 +3,24 @@
 
 
 
-
+{{#if loggedout}}
 
 <button >
-    <a href="auth/signup">Signup</a>
-</button>
-
-
-<br>
-
-<button>
-    <a href="auth/login">Login</a>
+    <a href="/auth/signup">Signup</a>
 </button>
 
 <br>
 
-
 <button>
-    <a href="auth/logout">Logout</a>
+    <a href="/auth/login">Login</a>
 </button>
 
+
+{{else}}
+
+<button>
+    <a href="/auth/logout">Logout</a>
+</button>
+
+{{/if}}
 
