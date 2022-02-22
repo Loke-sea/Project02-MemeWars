@@ -8,12 +8,12 @@ const Attack = require("../models/Attack.model");
 // -------- SHOW THE LIST OF BATTLES ----------------
 router.route("/battles")
 
-    .get((req, res)=>{
-       Battles.find()
-        .then((battles)=>{
-            if(req.session.username) res.render("battles-list", {battles, _id: req.session.username._id})
-            else res.render("battles-list", {battles, loggedout: true})
-        })
+    .get((req, res) => {
+        Battles.find()
+            .then((battles) => {
+                if (req.session.username) res.render("battles-list", { battles, _id: req.session.username._id })
+                else res.render("battles-list", { battles, loggedout: true })
+            })
     })
 
 // --------------- CREATE A NEW BATTLE
@@ -92,6 +92,20 @@ router.post("/battle/attack/:id/addpoint", (req, res) => {
         })
     res.redirect(`/battles/battle/${battleId}`)
 })
-
+router.post("/battle/attack/:id/subtractpoint", (req, res, next) => {
+    const attackId = req.params.id
+    const battleId = req.body.battleId
+    let points
+    Attack.findById(attackId)
+        .then((attack) => {
+            points = attack.points
+            points -= 1
+        })
+        .then(() => {
+            Attack.findByIdAndUpdate(attackId, { points }, { new: true })
+                .then()
+        })
+    res.redirect(`/battles/battle/${battleId}`)
+})
 
 module.exports = router;
