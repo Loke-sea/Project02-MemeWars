@@ -68,9 +68,8 @@ router.route("/signup")
         })
         .then((user) => {
           // Bind the user to the session object
-          req.session.user = user;
-          req.session.userId = user._id;
-          res.redirect("/");
+          req.session.username = user;
+          res.redirect(`/users/profile/${user._id}`);
         })
         .catch((error) => {
           if (error instanceof mongoose.Error.ValidationError) {
