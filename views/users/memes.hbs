@@ -1,15 +1,10 @@
 <h1>USER MEMES</h1>
 
 <form action="{{_id}}" method= "POST" enctype="multipart/form-data">
-    {{!-- <label for="name">Name</label>
-    <input type="text" name="name" id="name"/>
-
-    <br> --}}
 
     <label for="imageUrl">Image
     <input type="file" name="imageUrl" />
     </label>
-    
 
     <button type="submit">Save changes</button>
 </form>
@@ -18,7 +13,11 @@
     {{#each user.memes}}
     <li>
         <img src="{{this.imageUrl}}" style="width: 300px">
-        
+    </li>
+    <li>
+        <form action="/users/memes/delete/{{_id}}" method="POST">
+        <button>Delete</button>
+        </form>
     </li>
     {{/each}}
 </ul>

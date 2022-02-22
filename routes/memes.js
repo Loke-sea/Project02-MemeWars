@@ -7,9 +7,12 @@ const User = require("../models/User.model");
 const Meme = require("../models/Meme.model");
 const fileUploader = require("../config/cloudinary");
 
+
+//***********CREATE MEME******************* */
+//***************************************** */
+
 router.route("/:id")
 .get((req, res)=>{
-
     const userId = req.params.id
     User.findById(userId).populate("memes")
     .then((user)=>{
@@ -17,12 +20,12 @@ router.route("/:id")
     })
 })
 
+
 .post(fileUploader.single("imageUrl"), (req, res) => {
     //const name = req.body
     const userId = req.params.id;
     const imageUrl = req.file && req.file.path
     
-
     Meme
     .create({imageUrl})
     .then((newMeme)=>{
@@ -30,8 +33,20 @@ router.route("/:id")
         const newMemeId = newMeme._id.toString()
         User.findByIdAndUpdate(userId, {$push:{memes : newMemeId}}, {new : true})
         .then(res.redirect(`/users/memes/${userId}`))
-
+        
     })
 })
+
+//***********DELETE MEME******************* */
+//***************************************** */
+
+router.post("/delete/:id", (req, res)=>{
+    const id = req.params.id
+    const userId = req.session.username._id
+    console.log("UserID", userId);
+    Meme.findByIdAndDelete(id)
+    .then(res.redirect(`/users/memes/${userId}`))
+})
+
 
 module.exports = router;
