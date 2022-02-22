@@ -14,6 +14,7 @@ const fileUploader = require("../config/cloudinary");
 
 router.get("/profile/:id", (req, res) => {
   const id = req.params.id;
+
   if(req.session.username){
 
     User.findById(id).then((user) => {
@@ -27,6 +28,7 @@ router.get("/profile/:id", (req, res) => {
        
     })
   }
+
 });
 
 router
@@ -34,9 +36,19 @@ router
     res.redirect("/")
 })
 
-// ***************** EDIT PROFILE *************** //
-//************************************************************* //
-
+ // ***************** DELETE PROFILE *************** //
+  //************************************************************* //
+  
+router.post("/profile/edit/delete/:id", (req,res)=>{
+  const id = req.params.id
+  User.findByIdAndDelete(id)
+  .then(()=>{
+    res.redirect("/memers/memers")})
+    
+  })
+  
+  // ***************** EDIT PROFILE *************** //
+  //************************************************************* //
 
 router.route("/profile/edit/:id")
 .get(isLoggedIn,(req, res)=>{
@@ -61,6 +73,8 @@ router.route("/profile/edit/:id")
       res.render("users/profile", {user});
     });
   });
+
+
 
 module.exports = router;
 
