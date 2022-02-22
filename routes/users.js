@@ -29,7 +29,7 @@ router.get("/profile/:id", (req, res) => {
     });
   } else {
     User.findById(id).then((user) => {
-      res.render("users/profile", { user, nouser: true, _id: null });
+      res.render("users/profile", { user, nouser: true, _id: null, loggedout: true });
     });
   }
 });

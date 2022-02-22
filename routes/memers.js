@@ -10,7 +10,7 @@ router.route("/memers")
         User.find()
         .then((users)=>{
             if(req.session.username) res.render("memers-list", {users, _id: req.session.username._id})
-            else res.render("memers-list", {users})
+            else res.render("memers-list", {users, loggedout: true})
         })
     })
 

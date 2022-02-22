@@ -10,7 +10,7 @@ router.route("/battles")
        Battles.find()
         .then((battles)=>{
             if(req.session.username) res.render("battles-list", {battles, _id: req.session.username._id})
-            else res.render("battles-list", {battles})
+            else res.render("battles-list", {battles, loggedout: true})
         })
     })
 
@@ -38,8 +38,8 @@ router.post("/create-battle", (req, res)=>{
 
 router.get("/battle/:id", (req, res)=>{
     const id = req.params.id
-    const userId = req.session.username._id
     Battles.findById(id)
+    const userId = req.session.username._id
     .then((battle)=>{
         User.findById(userId)
         .populate("memes")
