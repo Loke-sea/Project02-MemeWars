@@ -17,14 +17,11 @@
 <button id="attack-button">Attack this meme!</button>
 
 {{#if isowner}}
-<li>
+
   <form action="/battles/battles/{{battle._id}}/delete" method="POST">
     <button>Delete</button>
   </form>
 
-
-
-</li>
 {{/if}}
 
 <div id="display-memes" style="display: none">
