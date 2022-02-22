@@ -5,7 +5,7 @@
 
 {{#if loggedout}}
 
-<button >
+<button>
     <a href="/auth/signup">Signup</a>
 </button>
 
@@ -15,12 +15,23 @@
     <a href="/auth/login">Login</a>
 </button>
 
+{{#each memesArray}}
+<img style="width: 300px" src="{{imageUrl}}" alt="" srcset="">
+{{/each}}
 
 {{else}}
 
 <button>
     <a href="/auth/logout">Logout</a>
 </button>
+{{#each memesArray}}
+<img style="width: 300px" src="{{imageUrl}}" alt="" srcset="">
+<form action="/likes/add/{{id}}" method="post">
+    <input type="text" name="imageUrl" value="{{imageUrl}}" style="display: none;">
+    <button type="submit">
+        like
+    </button>
+</form>
+{{/each}}
 
 {{/if}}
-

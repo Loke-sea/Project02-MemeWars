@@ -14,6 +14,7 @@ const fileUploader = require("../config/cloudinary");
 router.route("/:id")
 .get((req, res)=>{
     const userId = req.params.id
+
     // CHECK IF THERE IS SESSION
     if(req.session.username){
         User.findById(userId).populate("memes")
@@ -33,6 +34,7 @@ router.route("/:id")
             res.render("users/memes", {user, isuser : false})
         })
     }
+
 })
 
 

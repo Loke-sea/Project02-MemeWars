@@ -1,0 +1,11 @@
+<h1>blabalabasb</h1>
+
+{{#each memesArray}}
+<img style="width: 300px" src="{{this.imageUrl}}" alt="" srcset="">
+<form action="/likes/add/{{this.id}}" method="post">
+    <input type="text" name="imageUrl" value="{{this.url}}" style="display: none;">
+    <button type="submit">
+        like
+    </button>
+</form>
+{{/each}}
