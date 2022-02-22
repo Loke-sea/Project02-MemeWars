@@ -24,8 +24,10 @@ router
     })
 })
 router.post("/create-battle", (req, res)=>{
+    let owner = req.session.username._id
     const {title, imageUrl} = req.body
-    Battles.create({title, imageUrl})
+
+    Battles.create({title, imageUrl, owner})
     .then((newBattle)=> {
         const newBattleString = newBattle._id.toString()
         res.redirect(`/battles/battle/${newBattleString}`)
@@ -38,7 +40,9 @@ router.get("/battle/:id", (req, res)=>{
     const id = req.params.id
     Battles.findById(id)
     .then((battle)=>{
-        res.render("battle", {battle})
+        console.log(battle.owner)
+        if(battle.owner === req.session.username._id ) res.render("battle", {battle, isowner : true})
+        else res.render("battle", {battle})
     })
 })
 
