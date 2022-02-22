@@ -55,4 +55,6 @@ app.use(function(err, req, res, next) {
 // ---------------- REGISTER PARTIALS -------------------- \\
 hbs.registerPartials(__dirname + "/views/partials");
 
+
+
 module.exports = app;

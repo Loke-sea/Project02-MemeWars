@@ -38,11 +38,17 @@ router.post("/create-battle", (req, res)=>{
 
 router.get("/battle/:id", (req, res)=>{
     const id = req.params.id
+    const userId = req.session.username._id
     Battles.findById(id)
     .then((battle)=>{
-        console.log(battle.owner)
-        if(battle.owner === req.session.username._id ) res.render("battle", {battle, isowner : true})
-        else res.render("battle", {battle})
+        User.findById(userId)
+        .populate("memes")
+        .then((user)=>{
+            let memesArray = user.memes
+            if(battle.owner === req.session.username._id ) res.render("battle", {battle, memesArray, isowner : true})
+            else res.render("battle", {battle, memesArray})
+        })
+
     })
 })
 
