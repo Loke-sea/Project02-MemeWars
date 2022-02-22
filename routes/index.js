@@ -36,8 +36,7 @@ router.get('/', (req, res) => {
         res.render('index', { memesArray, loggedout: true })
       }
       else {
-        // let loggedout = false ------ NO HACE NADA
-        res.render('index', { memesArray, _id: req.session.username })
+        res.render('index', { memesArray, _id: req.session.username._id })
       }
     })
 });
