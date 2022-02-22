@@ -7,12 +7,13 @@ const Attack = require("../models/Attack.model");
 
 // -------- SHOW THE LIST OF BATTLES ----------------
 router.route("/battles")
-    .get((req, res) => {
-        Battles.find()
-            .then((battles) => {
-                if (req.session.username) res.render("battles-list", { battles, _id: req.session.username._id })
-                else res.render("battles-list", { battles })
-            })
+
+    .get((req, res)=>{
+       Battles.find()
+        .then((battles)=>{
+            if(req.session.username) res.render("battles-list", {battles, _id: req.session.username._id})
+            else res.render("battles-list", {battles, loggedout: true})
+        })
     })
 
 // --------------- CREATE A NEW BATTLE

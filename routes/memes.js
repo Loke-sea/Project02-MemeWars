@@ -23,7 +23,7 @@ router.route("/:id")
                 res.render("users/memes", {user, isuser : true, _id: req.session.username._id})
         }else{
 
-                res.render("users/memes", {user, isuser : false, _id: req.session.username._id})
+                res.render("users/memes", {user, isuser : false, _id: req.session.username._id, })
             }
         })
     }
@@ -31,7 +31,7 @@ router.route("/:id")
     else{
         User.findById(userId).populate("memes")
         .then((user)=>{
-            res.render("users/memes", {user, isuser : false})
+            res.render("users/memes", {user, isuser : false, loggedout: true})
         })
     }
 
