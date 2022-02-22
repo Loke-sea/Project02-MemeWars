@@ -7,8 +7,17 @@ router.get("/", (req,res)=>{
     const keywords = req.query.keywords
     Api.getSearch(keywords)
     .then((objectResult)=>{
+        
         resultsArray = objectResult.data.memes;
-        res.render('search-results', {resultsArray})
+
+        if(req.session.username === undefined) {
+            
+            res.render('search-results', {resultsArray})
+
+        }else{
+            
+            res.render('search-results', {resultsArray, loggedin : true}) 
+        } 
     })
 })
 

@@ -1,10 +1,29 @@
 <h1>My profile</h1>
 
+{{#if nouser}}
+<div>
+    <img src="{{user.profilePic}}" alt="profile" height="50px" width="50px" />
+  <br />
+
+  <h3>Name: </h3>
+  <p>{{user.username}}</p>
+
+  <h3>Email: </h3>
+  <p>{{user.email}}</p>
+
+  <h3>Description:</h3>
+  <p> {{user.description}}</p>
+  <br />
+
+  <button>
+    <a href="/users/memes/{{user._id}}">Collection</a>
+  </button>
+</div>
+{{else}}
 <div>
 
-
-    <img src="{{user.profilePic}}" alt="profile" height="50px" width="50px">
-    <br>
+  <img src="{{user.profilePic}}" alt="profile" height="50px" width="50px" />
+  <br />
 
   <h3>Name: </h3>
   <p>{{user.username}}</p>
@@ -25,3 +44,4 @@
   </button>
 
 </div>
+{{/if}}
