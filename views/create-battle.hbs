@@ -6,12 +6,21 @@
         <input type= "text" name = "title">
     </label>
 
-    <label>
-        Fire starter:
-        <input type= "text" name = "imageUrl">
-    </label>
+    <ul>
+        {{#each user.memes}}
+        <li>
+            <img src="{{this.imageUrl}}" style="width: 300px">
 
-    <button type="submit">Let's go!</button>
+            <form action="/create-battle" method="post">
+            <input type="text" name="imageUrl" value="{{this.imageUrl}}" style="display: none;">
+            <button type="submit">Select </button>
+        </form>
+
+            
+        </li>
+        {{/each}}
+    </ul>
+
 
 
 

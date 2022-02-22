@@ -6,32 +6,45 @@
     <div class="row justify-content-center">
       <div class="col-md-6">
 
-        <form action="/users/profile/edit/{{user._id}}" method="POST"  enctype="multipart/form-data">
+        <form
+          action="/users/profile/edit/{{user._id}}"
+          method="POST"
+          enctype="multipart/form-data"
+        >
 
           <label for="username">Username:</label>
-          <input type="text" name="username" id="username" 
-          value="{{user.username}}"/>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            value="{{user.username}}"
+          />
 
           <label for="email">Email:</label>
           <input type="text" name="email" id="email" value="{{user.email}}" />
 
           <label for="description">Description:</label>
-          <textarea name="description" id="description" cols="30" rows="4" >{{user.description}}</textarea>
+          <textarea
+            name="description"
+            id="description"
+            cols="30"
+            rows="4"
+          >{{user.description}}</textarea>
 
           <label for="profilePic">Image
-          <input type="file" name="profilePic" />
+            <input type="file" name="profilePic" />
           </label>
-
+          
           <button type="submit">Save changes</button>
 
         </form>
+        
+            <form action="/users/profile/edit/delete/{{user._id}}" method="POST">
+              <button>Delete account</button>
+            </form>
 
       </div>
     </div>
   </div>
 
 </div>
-
-
-
-

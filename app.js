@@ -18,7 +18,6 @@ var likesRouter = require('./routes/likes');
 var memesRouter = require('./routes/memes')
 
 
-
 var app = express();
 
 // Functional curling style of loading configuration

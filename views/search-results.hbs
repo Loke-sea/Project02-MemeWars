@@ -1,9 +1,22 @@
+{{#if loggedin}}
 {{#each resultsArray}}
 <img style="width: 300px" src="{{url}}" alt="" srcset="">
+
 <form action="/likes/add/{{id}}" method="post">
     <input type="text" name="imageUrl" value="{{url}}" style="display: none;">
+
+    
+
     <button type="submit">
         like
     </button>
+
 </form>
 {{/each}}
+
+{{else}}
+
+{{#each resultsArray}}
+<img style="width: 300px" src="{{url}}" alt="" srcset="">
+{{/each}}
+{{/if}}
