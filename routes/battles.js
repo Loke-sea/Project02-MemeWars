@@ -45,11 +45,12 @@ router.get("/battle/:id", (req, res)=>{
 //********DELETE BATTLE **************/
 //**********************************/
 
-router.post("/battles/delete/:id", (req, res)=>{
+router.post("/battles/:id/delete", (req, res)=>{
     const id = req.params.id
     Battles.findByIdAndDelete(id)
     .then(()=> res.redirect("/battles/battles"))
 })
+
 
 
 module.exports = router;

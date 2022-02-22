@@ -6,9 +6,11 @@
         <a href="/battles/battle/{{_id}}">{{this.title}}</a>  
     </li>
 
-    <form action="/battles/battles/delete/{{_id}}" method="POST">
+    <form action="/battles/battles/{{_id}}/delete" method="POST">
     <button>Delete</button>
     </form>
+    
+
     
     {{/each}}
 </ul>

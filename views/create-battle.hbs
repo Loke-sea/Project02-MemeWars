@@ -11,18 +11,12 @@
         <li>
             <img src="{{this.imageUrl}}" style="width: 300px">
 
-            <form action="/create-battle" method="post">
+            <form action="/battles/create-battle" method="post">
             <input type="text" name="imageUrl" value="{{this.imageUrl}}" style="display: none;">
+            </form>
             <button type="submit">Select </button>
-        </form>
 
-            
         </li>
         {{/each}}
     </ul>
-
-
-
-
-
 </form>

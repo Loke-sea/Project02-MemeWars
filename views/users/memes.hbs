@@ -17,9 +17,8 @@
     <li>
         <img src="{{this.imageUrl}}" style="width: 300px">
     </li>
-        <form action="/users/memes/delete/{{_id}}" method="POST">
+        <form action="/users/memes/{{_id}}/delete" method="POST">
         <button>Delete</button>
         </form>
     {{/each}}
 </ul>
-

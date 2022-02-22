@@ -57,7 +57,7 @@ router.route("/:id")
 //***********DELETE MEME******************* */
 //***************************************** */
 
-router.post("/delete/:id", (req, res)=>{
+router.post("/:id/delete", (req, res)=>{
     const id = req.params.id
     const userId = req.session.username._id
     console.log("UserID", userId);
