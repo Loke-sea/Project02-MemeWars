@@ -8,9 +8,12 @@
 
 {{#if isowner}}
 <li>
-  <form action="/battles/battles/delete/{{battle._id}}" method="POST">
+  <form action="/battles/battles/{{battle._id}}/delete" method="POST">
     <button>Delete</button>
   </form>
+
+
+
 </li>
 {{/if}}
 
