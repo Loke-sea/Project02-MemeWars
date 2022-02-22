@@ -1,10 +1,12 @@
 <h1>Start a battle</h1>
 <form action="/battles/create-battle" method="POST">
+
   <ul>
     <label>
       Battle name:
       <input type="text" name="title" />
     </label>
+
     {{#each user.memes}}
       <li>
         <img src="{{this.imageUrl}}" style="width: 300px" />

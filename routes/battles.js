@@ -24,8 +24,10 @@ router
     })
 })
 router.post("/create-battle", (req, res)=>{
+    let owner = req.session.username._id
     const {title, imageUrl} = req.body
-    Battles.create({title, imageUrl})
+
+    Battles.create({title, imageUrl, owner})
     .then((newBattle)=> {
         const newBattleString = newBattle._id.toString()
         res.redirect(`/battles/battle/${newBattleString}`)
@@ -43,8 +45,10 @@ router.get("/battle/:id", (req, res)=>{
         .populate("memes")
         .then((user)=>{
             let memesArray = user.memes
-            res.render("battle", {battle, memesArray})
+            if(battle.owner === req.session.username._id ) res.render("battle", {battle, memesArray, isowner : true})
+            else res.render("battle", {battle, memesArray})
         })
+
     })
 })
 
