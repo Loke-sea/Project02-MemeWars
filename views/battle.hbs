@@ -12,6 +12,9 @@
   <form action="/battles/battle/attack/{{id}}/addpoint" method="POST">
     <button name="battleId" value="{{../battle._id}}">vote</button>
   </form>
+  <form action="/battles/battle/attack/{{id}}/subtractpoint" method="POST">
+    <button name="battleId" value="{{../battle._id}}">downvote</button>
+  </form>
   {{/each}}
 </div>
 <button id="attack-button">Attack this meme!</button>
@@ -21,9 +24,6 @@
   <form action="/battles/battles/{{battle._id}}/delete" method="POST">
     <button>Delete</button>
   </form>
-
-
-
 </li>
 {{/if}}
 
