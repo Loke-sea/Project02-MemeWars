@@ -15,6 +15,9 @@
   <form action="/battles/battle/attack/{{id}}/addpoint" method="POST">
     <button name="battleId" value="{{../battle._id}}">vote</button>
   </form>
+  <form action="/battles/battle/attack/{{id}}/subtractpoint" method="POST">
+    <button name="battleId" value="{{../battle._id}}">downvote</button>
+  </form>
   {{/each}}
 </div>
 
