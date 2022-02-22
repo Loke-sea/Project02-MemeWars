@@ -9,7 +9,8 @@ class Api {
     )
   }
   // CHANGE THE PATHS ACCORIDNG TO API DOCUEMNTATION
-  getSearch = (keyWords)=> this.api.get(`search?${process.env.API_KEY}&keywords=${keyWords}&number=10`)
+  getSearch = (keyWords) => this.api.get(`search?${process.env.API_KEY}&keywords=${keyWords}&number=10`)
+  getRandom = () => this.api.get(`random?media-type=image&${process.env.API_KEY}`)
 
   // etc...
 }

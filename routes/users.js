@@ -14,9 +14,23 @@ const fileUploader = require("../config/cloudinary");
 
 router.get("/profile/:id", (req, res) => {
   const id = req.params.id;
-  User.findById(id).then((user) => {
-    res.render("users/profile", { user, _id: req.session.username._id });
-  });
+
+
+  if(req.session.username){
+
+    User.findById(id).then((user) => {
+      if(id === req.session.username._id) res.render("users/profile", {user, _id: req.session.username._id});
+      else res.render("users/profile", {user, nouser: true, _id: req.session.username._id});
+      
+    });
+  }else{
+    User.findById(id).then((user) => {
+      res.render("users/profile", {user, nouser: true})
+       
+    })
+  }
+
+
 });
 
 router
@@ -39,12 +53,13 @@ router.post("/profile/edit/delete/:id", (req,res)=>{
   //************************************************************* //
 
 router.route("/profile/edit/:id")
-.get((req, res)=>{
+.get(isLoggedIn,(req, res)=>{
     const id = req.params.id
-    User.findById(id)
-    .then((user)=>{
-        res.render("users/edit-profile", {user})
-    })
+    if(id === req.session.username._id){
+      User.findById(id).then((user) => {
+        res.render("users/edit-profile", {user, _id: req.session.username._id});
+      });
+    }
 })
 
 .post(fileUploader.single("profilePic"), (req, res) => {

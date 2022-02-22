@@ -14,10 +14,27 @@ const fileUploader = require("../config/cloudinary");
 router.route("/:id")
 .get((req, res)=>{
     const userId = req.params.id
-    User.findById(userId).populate("memes")
-    .then((user)=>{
-        res.render("users/memes", {user})
-    })
+
+    // CHECK IF THERE IS SESSION
+    if(req.session.username){
+        User.findById(userId).populate("memes")
+        .then((user)=>{
+        if(userId === req.session.username._id){
+                res.render("users/memes", {user, isuser : true, _id: req.session.username._id})
+        }else{
+
+                res.render("users/memes", {user, isuser : false, _id: req.session.username._id})
+            }
+        })
+    }
+    // REDIRECTS TO COLLECTIONS IF NOT LOGGED IN
+    else{
+        User.findById(userId).populate("memes")
+        .then((user)=>{
+            res.render("users/memes", {user, isuser : false})
+        })
+    }
+
 })
 
 
