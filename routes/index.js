@@ -30,6 +30,7 @@ router.get('/', (req, res) => {
     .then((results) => {
       memesArray = results
       shuffle(memesArray)
+      memesArray.splice(9,memesArray.length)
     })
     .then(() => {
       if (req.session.username === undefined) {
