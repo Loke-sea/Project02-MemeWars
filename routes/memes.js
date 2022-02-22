@@ -13,7 +13,7 @@ router.route("/:id")
     const userId = req.params.id
     User.findById(userId).populate("memes")
     .then((user)=>{
-        res.render("users/memes", {user})
+        res.render("users/memes", {user, _id: req.session.username._id})
     })
 })
 
