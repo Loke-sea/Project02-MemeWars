@@ -1,9 +1,19 @@
-<h1>BATTLEEEE</h1>
+<h1>WELLCOME TO THE BATTLE</h1>
 
 <h2>{{battle.title}}</h2>
 
 <img src="{{battle.imageUrl}}"
-    onerror='this.src = "https://cdn-icons.flaticon.com/png/512/881/premium/881284.png?token=exp=1645372280~hmac=bb856e707757023683b870354ea7742c"'>
+  onerror='this.src = "https://cdn-icons.flaticon.com/png/512/881/premium/881284.png?token=exp=1645372280~hmac=bb856e707757023683b870354ea7742c"'>
+<div>
+  <h2>VOTE THE BEST ATTACK</h2>
+  {{#each battle.attacksArray}}
+  <img src="{{imageUrl}}" style="width: 300px;" alt="" srcset="">
+  <p>{{points}}</p>
+  <form action="/battles/battle/attack/{{id}}/addpoint" method="POST">
+    <button name="battleId" value="{{../battle._id}}">vote</button>
+  </form>
+  {{/each}}
+</div>
 <button id="attack-button">Attack this meme!</button>
 
 {{#if isowner}}
@@ -18,14 +28,12 @@
 {{/if}}
 
 <div id="display-memes" style="display: none">
-{{#each memesArray}}
-    <img style="width: 300px" src="{{imageUrl}}" alt="" srcset="">
-    <form action="/likes/add/{{id}}" method="post">
-        <input type="text" name="imageUrl" value="{{url}}" style="display: none;">
-        <button type="submit">
-            like
-        </button>
-    </form>
-{{/each}}
+  {{#each memesArray}}
+  <img style="width: 300px" src="{{imageUrl}}" alt="" srcset="">
+  <form action="/battles/battle/attack/{{../battle._id}}" method="POST">
+    <button name="imageUrl" value="{{imageUrl}}" type="submit">
+      Choose
+    </button>
+  </form>
+  {{/each}}
 </div>
-
