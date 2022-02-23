@@ -1,31 +1,77 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">Meme Warriors</a>
+{{!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
+        <a class="navbar-brand" href="/">Meme Warriors</a>
 
-            <span class="sr-only">(current)</span>
-            </a>
-            {{#if loggedout}}
-            <a class="nav-item nav-link" href="/memers/memers">Memers</a>
-            <a class="nav-item nav-link" href="/battles/battles">Battles</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="navbar-nav">
 
-            {{else}}
-            <a class="nav-item nav-link" href="/memers/memers">Memers</a>
-            <a class="nav-item nav-link" href="/battles/battles">Battles</a>
+                <span class="sr-only">(current)</span>
+                </a>
+                {{#if loggedout}}
+                <a class="nav-item nav-link" href="/memers/memers">Memers</a>
+                <a class="nav-item nav-link" href="/battles/battles">Battles</a>
 
-            <a class="nav-item nav-link" href="/users/profile/{{_id}}">My profile</a>
-            {{/if}}
+                {{else}}
+                <a class="nav-item nav-link" href="/memers/memers">Memers</a>
+                <a class="nav-item nav-link" href="/battles/battles">Battles</a>
 
-            <form method="get" action="/search">
-                <input type="text" name="keywords">
-                <button type="submit">Search</button>
-            </form>
+                <a class="nav-item nav-link" href="/users/profile/{{_id}}">My profile</a>
+                {{/if}}
 
+                <form method="get" action="/search">
+                    <input type="text" name="keywords">
+                    <button type="submit">Search</button>
+                </form>
+
+            </div>
         </div>
+    </div>
+</nav> --}}
+<nav class="navbar navbar-expand-lg navbar-light bg-light ">
+    <div class="container-fluid d-flex justify-content-between">
+        <a class="navbar-brand" href="/">Meme Warriors</a>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                {{#if loggedout}}
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/memers/memers">Memers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/battles/battles">Battles</a>
+                </li>
+                {{else}}
+                <li class="nav-item">
+                    <a class="nav-link" href="/memers/memers">Memers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/battles/battles">Battles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/users/profile/{{_id}}">My profile</a>
+                </li>
+                {{/if}}
+
+
+            </ul>
+        </div>
+        <form method="get" action="/search" class="input-group search-form">
+            <div class="form-outline">
+                <input type="search" name="keywords" id="form1" class="form-control" />
+                <label class="form-label" for="form1">Search</label>
+            </div>
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
     </div>
 </nav>
