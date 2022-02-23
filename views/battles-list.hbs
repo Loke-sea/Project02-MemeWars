@@ -4,10 +4,15 @@
     {{#each battles}}
     <li>
         <img src="{{this.imageUrl}}" alt="battle image" height="50px" width="80px">
-        <a href="/battles/battle/{{_id}}">{{this.title}}</a>  
+        <a href="/battles/battle/{{_id}}">{{this.title}}</a>
+        {{#if isMine}}
+        <span>THIS BATTLE IS YOURS</span>
+        {{/if}}
     </li>
 
     {{/each}}
 </ul>
 
+{{#if loggedin}}
 <a href="/battles/create-battle">Create battle</a>
+{{/if}}

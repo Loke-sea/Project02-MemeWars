@@ -39,17 +39,13 @@ router.route("/:id")
 
 
 .post(fileUploader.single("imageUrl"), (req, res) => {
-    //const name = req.body
-    const userId = req.params.id;
     const imageUrl = req.file && req.file.path
     
     Meme
     .create({imageUrl})
     .then((newMeme)=>{
-        // console.log("NEW MEME", newMeme);
-        const newMemeId = newMeme._id.toString()
-        User.findByIdAndUpdate(userId, {$push:{memes : newMemeId}}, {new : true})
-        .then(res.redirect(`/users/memes/${userId}`))
+        User.findByIdAndUpdate(req.params.id, {$push:{memes : newMeme._id}}, {new : true})
+        .then(res.redirect(`/users/memes/${req.params.id}`))
         
     })
 })
