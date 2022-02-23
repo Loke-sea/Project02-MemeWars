@@ -1,11 +1,12 @@
 
 <h1>List of memers</h1>
 
-<ul>
+<ul class=" users">
     {{#each users}}
-        <li>
+        <li class="list">
             <img src="{{this.profilePic}}" alt="" width="40px" height="40px">
             <a href="/users/profile/{{_id}}">{{this.username}}</a>
+            <hr>
         </li>
 
     {{/each}}

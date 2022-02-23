@@ -1,7 +1,17 @@
 body {
   padding: 0;
   margin: 0;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 400% "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: rgb(141, 161, 161);
 }
 
+.users{
+  list-style-type: none;
+  text-decoration: none;
+  
+}
+
+a{
+  color:aliceblue;
+  text-decoration: none;
+}
