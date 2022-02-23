@@ -4,6 +4,7 @@ var router = express.Router();
 const mongoose = require("mongoose");
 
 const User = require("../models/User.model");
+const Battles = require("../models/Battle.model")
 
 const isLoggedIn = require("../middleware/isLoggedIn");
 const isLoggedOut = require("../middleware/isLoggedOut");
@@ -37,6 +38,19 @@ router.get("/profile/:id", (req, res) => {
 router.get("/profile", (req, res) => {
   res.redirect("/");
 });
+
+// ***************** DISPLAY BATTLES OF A USER *****************
+//************************************************************* //
+
+router.get("/battles/:id", (req, res)=>{
+  const id = req.params.id
+  Battles.find({owner: id})
+      .then((battles)=>{
+        console.log("inside battle callback", battles)
+        if(req.session.username) res.render("users/my-battles", {battles, _id: req.session.username._id})
+        else res.redirect("/auth/login")
+      })
+})
 
 // ***************** DELETE PROFILE *************** //
 //************************************************************* //
