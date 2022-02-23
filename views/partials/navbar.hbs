@@ -1,25 +1,41 @@
 <nav class="navbar">
-    <a class="navbar-brand" href="/">Meme Warriors</a>
+    {{!-- <a class="navbar-brand" href="/">Meme Warriors</a> --}}
+    <div class="button-container">
+        <a id="menu-button">
+            <i class="fa-solid fa-bars"></i>
 
+        </a>
+    </div>
 
+    <a href="/">
+        <img class="logo" src="/images/m-design-logo-09A5D82F03-seeklogo.com.png" alt="" srcset="">
+    </a>
+
+    <div id="search-button" class="button-container">
+        <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
 
 </nav>
-<div class="navbar-links-container">
+<div id="navbar-links-container" class="navbar-links-container">
 
     {{#if loggedout}}
     <a class="nav-link" href="/memers/memers">Memers</a>
     <a class="nav-link" href="/battles/battles">Battles</a>
+    <a class="nav-link" href="/auth/login">Login</a>
+    <a class="nav-link" href="/auth/signup">Signup</a>
 
     {{else}}
     <a class="nav-link" href="/memers/memers">Memers</a>
     <a class="nav-link" href="/battles/battles">Battles</a>
 
     <a class="nav-link" href="/users/profile/{{_id}}">My profile</a>
+    <a class="nav-link" href="/auth/logout">Logout</a>
+
     {{/if}}
 
 
 </div>
-<form class="search-form" method="get" action="/search">
-    <input class="search-input" type="text" name="keywords" >
+<form id="search-form" method="get" action="/search">
+    <input class="search-input" type="text" name="keywords">
     <button type="submit"><i class="fab fa-solid fa-magnifying-glass"></i></button>
 </form>

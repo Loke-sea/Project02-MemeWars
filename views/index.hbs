@@ -1,37 +1,35 @@
-<h1>Homepage</h1>
-<p><h1>{{username}}</h1> Welcome to Meme Warriors{{title}}</p>
 
 
 
-{{#if loggedout}}
+<div class="buttons-container">
+<h1 class="title-marker">{{username}} Welcome to Meme Warriors{{title}}!</h1>
+    {{#if loggedout}}
 
-<button>
-    <a href="/auth/signup">Signup</a>
-</button>
+    
+    <div class="memes-container">
+        {{#each memesArray}}
+        <div class="card">
+            <img class="image-meme" src="{{imageUrl}}" alt="" srcset="">
+        </div>
+        {{/each}}
+    </div>
 
-<br>
+    {{else}}
 
-<button>
-    <a href="/auth/login">Login</a>
-</button>
+</div>
 
-{{#each memesArray}}
-<img style="width: 300px" src="{{imageUrl}}" alt="" srcset="">
-{{/each}}
-
-{{else}}
-
-<button>
-    <a href="/auth/logout">Logout</a>
-</button>
-{{#each memesArray}}
-<img style="width: 300px" src="{{imageUrl}}" alt="" srcset="">
-<form action="/likes/add/{{id}}" method="post">
-    <input type="text" name="imageUrl" value="{{imageUrl}}" style="display: none;">
-    <button type="submit">
-        like
-    </button>
-</form>
-{{/each}}
+<div class="memes-container">
+    {{#each memesArray}}
+    <div class="card">
+        <img class="image-meme" src="{{imageUrl}}" alt="" srcset="">
+        <form action="/likes/add/{{id}}" method="post">
+            <input type="text" name="imageUrl" value="{{imageUrl}}" style="display: none;">
+            <button class="like-button" type="submit">
+                <i class="fa-solid fa-heart"></i>
+            </button>
+        </form>
+    </div>
+    {{/each}}
+</div>
 
 {{/if}}
