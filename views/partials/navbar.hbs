@@ -1,26 +1,22 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
+<nav class="navbar">
+    <div class="container">
 
         <a class="navbar-brand" href="/">Meme Warriors</a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <div class="navbar-nav">
 
                 <span class="sr-only">(current)</span>
                 </a>
                 {{#if loggedout}}
-                <a class="nav-item nav-link" href="/memers/memers">Memers</a>
-                <a class="nav-item nav-link" href="/battles/battles">Battles</a>
+                <a class="nav-link" href="/memers/memers">Memers</a>
+                <a class="nav-link" href="/battles/battles">Battles</a>
 
                 {{else}}
-                <a class="nav-item nav-link" href="/memers/memers">Memers</a>
-                <a class="nav-item nav-link" href="/battles/battles">Battles</a>
+                <a class="nav-link" href="/memers/memers">Memers</a>
+                <a class="nav-link" href="/battles/battles">Battles</a>
 
-                <a class="nav-item nav-link" href="/users/profile/{{_id}}">My profile</a>
+                <a class="nav-link" href="/users/profile/{{_id}}">My profile</a>
                 {{/if}}
 
                 <form method="get" action="/search">
