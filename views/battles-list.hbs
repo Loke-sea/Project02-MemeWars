@@ -1,18 +1,20 @@
 <h1>List of battles</h1>
+{{#if loggedin}}
+<a href="/battles/create-battle" class="battles-list-title">Create battle</a>
+{{/if}}
 
 <ul>
     {{#each battles}}
-    <li>
+    <div class="battles-wrapper">
+    <li class="battles-list">
         <img src="{{this.imageUrl}}" alt="battle image" height="50px" width="80px">
         <a href="/battles/battle/{{_id}}">{{this.title}}</a>
         {{#if isMine}}
-        <span>THIS BATTLE IS YOURS</span>
+        <div class="your-battle">THIS BATTLE IS YOURS</div>
         {{/if}}
+        <hr>
     </li>
+    </div>
 
     {{/each}}
 </ul>
-
-{{#if loggedin}}
-<a href="/battles/create-battle">Create battle</a>
-{{/if}}

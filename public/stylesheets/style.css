@@ -18,6 +18,24 @@ a {
   list-style-type: none;
   color: aliceblue;
   text-decoration: none;
+  
+}
+
+.battles-list-title{
+  color:black;
+  border: solid 1px black;
+}
+
+.battles-list{
+  list-style-type: none;
+  color: aliceblue;
+  text-decoration: none;
+  margin-right: 60px;
+}
+
+.your-battle{
+  color:black;
+  font-size: 20%;
 }
 
 .navbar {
@@ -34,9 +52,7 @@ a {
 .search-form input {
   height: 2vh;
 }
-.search-form{
 
-}
 
 .search-form button {
   height: 5vh;
