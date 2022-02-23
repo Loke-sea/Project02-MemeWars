@@ -1,30 +1,23 @@
 <nav class="navbar">
-    <div class="container">
+    <a class="navbar-brand" href="/">Meme Warriors</a>
 
-        <a class="navbar-brand" href="/">Meme Warriors</a>
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <div class="navbar-nav">
-
-                <span class="sr-only">(current)</span>
-                </a>
-                {{#if loggedout}}
-                <a class="nav-link" href="/memers/memers">Memers</a>
-                <a class="nav-link" href="/battles/battles">Battles</a>
-
-                {{else}}
-                <a class="nav-link" href="/memers/memers">Memers</a>
-                <a class="nav-link" href="/battles/battles">Battles</a>
-
-                <a class="nav-link" href="/users/profile/{{_id}}">My profile</a>
-                {{/if}}
-
-                <form method="get" action="/search">
-                    <input type="text" name="keywords">
-                    <button type="submit">Search</button>
-                </form>
-
-            </div>
-        </div>
-    </div>
+    <form class="search-form" method="get" action="/search">
+        <input type="text" name="keywords">
+        <button type="submit">Search</button>
+    </form>
 </nav>
+<div class="navbar-links-container">
+
+    {{#if loggedout}}
+    <a class="nav-link" href="/memers/memers">Memers</a>
+    <a class="nav-link" href="/battles/battles">Battles</a>
+
+    {{else}}
+    <a class="nav-link" href="/memers/memers">Memers</a>
+    <a class="nav-link" href="/battles/battles">Battles</a>
+
+    <a class="nav-link" href="/users/profile/{{_id}}">My profile</a>
+    {{/if}}
+
+
+</div>
