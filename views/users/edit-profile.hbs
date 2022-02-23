@@ -14,17 +14,18 @@
       <input id="email" class="input" type="email" name="email" value="{{user.email}}">
    </div>
    <div class="input-container ic2">
-      <textarea name="description" id="description" cols="30" rows="4">{{user.description}}</textarea>
+      <textarea name="description" id="description" cols="66" rows="12">{{user.description}}</textarea>
    </div>
 
   <div class="input-container ic2">
-     <input class="submit" type="file" name="profilePic" />
+     <input class="file" type="file" name="profilePic" />
   </div>
          <button type="submit" class="submit">Save changes</button>
    </form>
+   
 
-  <form action="/users/profile/{{user._id}}/delete/" method="POST">
-              <buttonclass="submit">Delete account</button>
+  <form class="form-auth" action="/users/profile/{{user._id}}/delete/" method="POST">
+              <button class="delete">Delete account</button>
    </form>
 
 </div>
