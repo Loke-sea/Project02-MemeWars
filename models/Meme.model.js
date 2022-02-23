@@ -9,7 +9,7 @@ const memeSchema = new Schema({
     //     type: String,
     //     default: "Meme"
     // },
-    battles: [],
+    battles: [{type: Schema.Types.ObjectId, ref: "Battle"}],
     imageUrl: {
         type: String,
         required: true
