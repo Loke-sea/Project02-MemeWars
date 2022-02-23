@@ -1,18 +1,13 @@
 {{#if loggedin}}
-{{#each resultsArray}}
-<img style="width: 300px" src="{{url}}" alt="" srcset="">
-
-<form action="/likes/add/{{id}}" method="post">
-    <input type="text" name="imageUrl" value="{{url}}" style="display: none;">
-
-    
-
-    <button type="submit">
-        like
-    </button>
-
-</form>
-{{/each}}
+    {{#each resultsArray}}
+<div class="card container d-flex">
+    <img src="{{url}}" style="width:100%;" alt="" srcset="">
+    <form action="/likes/add/{{id}}" method="post">
+        <input type="text" name="imageUrl" value="{{url}}" style="display: none;">
+        <button class="fas fa-solid fa-heart" type="submit"></button>
+    </form>
+</div>
+    {{/each}}
 
 {{else}}
 
