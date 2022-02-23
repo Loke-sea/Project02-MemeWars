@@ -1,16 +1,19 @@
-<h1>Login</h1>
 
-<form action="/auth/login" method="POST">
-
-   <label> username
-      <input type="text" name="username">
-   </label>
-
-   <label> Password
-      <input type="password" name="password">
-   </label>
-
-   <button type="submit">Submit</button>
-</form>
+<div class="form">
+    <div class="title">Welcome</div>
+    <div class="subtitle">Please log in</div>
+    <form class="form-auth" action="/auth/login" method="POST">
+    <div class="input-container ic1">
+          <input id="firstname" class="input" type="text" name="username" placeholder="username">
+   </div>
+   <div class="input-container ic2">
+      <input id="password" class="input" type="password" name="password" placeholder="password">
+   </div>
+         <button type="submit" class="submit">Submit</button>
+   </form>
+</div>
 
 {{errorMessage}}
+
+
+

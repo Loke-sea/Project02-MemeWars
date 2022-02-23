@@ -1,50 +1,31 @@
-<h1>Edit profile</h1>
 
-<div class="container">
+        
 
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-6">
+       
 
-        <form
-          action="/users/profile/edit/{{user._id}}"
-          method="POST"
-          enctype="multipart/form-data"
-        >
 
-          <label for="username">Username:</label>
-          <input
-            type="text"
-            name="username"
-            id="username"
-            value="{{user.username}}"
-          />
+<div class="form">
+    <div class="title">Edit your profile</div>
+    <form class="form-auth"  action="/users/profile/edit/{{user._id}}" method="POST" enctype="multipart/form-data">
+    <div class="input-container ic1">
+          <input id="firstname" class="input" type="text" name="username"  value="{{user.username}}">
+   </div>
+   <div class="input-container ic2">
+      <input id="email" class="input" type="email" name="email" value="{{user.email}}">
+   </div>
+   <div class="input-container ic2">
+      <textarea name="description" id="description" cols="30" rows="4">{{user.description}}</textarea>
+   </div>
 
-          <label for="email">Email:</label>
-          <input type="text" name="email" id="email" value="{{user.email}}" />
-
-          <label for="description">Description:</label>
-          <textarea
-            name="description"
-            id="description"
-            cols="30"
-            rows="4"
-          >{{user.description}}</textarea>
-
-          <label for="profilePic">Image
-            <input type="file" name="profilePic" />
-          </label>
-          
-          <button type="submit">Save changes</button>
-
-        </form>
-
-            <form action="/users/profile/{{user._id}}/delete/" method="POST">
-              <button>Delete account</button>
-            </form>
-                
-      </div>
-    </div>
+  <div class="input-container ic2">
+     <input class="submit" type="file" name="profilePic" />
   </div>
+         <button type="submit" class="submit">Save changes</button>
+   </form>
+
+  <form action="/users/profile/{{user._id}}/delete/" method="POST">
+              <buttonclass="submit">Delete account</button>
+   </form>
 
 </div>
+
