@@ -8,12 +8,17 @@
       <input type="text" name="title" required/>
  
     </label>
-<h1 class="subtitle-marker">Choose from your collection</h1>
+
+
+    <h1 class="subtitle-marker">Choose from your collection</h1>
+
+
     <div class="memes-container">
     {{#each user.memes}}
-      <div class="card">
-        <img src="{{this.imageUrl}}" style="width: 300px" />
-        <button type="submit" name="imageUrl" value="{{this.imageUrl}}" class="submit">Select </button>
+      <div class="card" class="image-meme"/>
+        <button type="submit" name="imageUrl" value="{{this.imageUrl}}" class="buttons-container image-button"> 
+        <img src="{{this.imageUrl}}" style="width: 300px" class="image-meme"/>
+      </button>
       </div>
     {{/each}}
   </ul>

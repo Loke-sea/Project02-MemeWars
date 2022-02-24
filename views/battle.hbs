@@ -1,13 +1,17 @@
 <h2  class="title-marker">{{battle.title}}</h2>
 
+<div class="battle-head">
+
 <img src="{{battle.imageUrl}}"
-  onerror='this.src = "https://cdn-icons.flaticon.com/png/512/881/premium/881284.png?token=exp=1645372280~hmac=bb856e707757023683b870354ea7742c"'>
+  onerror='this.src = "https://cdn-icons.flaticon.com/png/512/881/premium/881284.png?token=exp=1645372280~hmac=bb856e707757023683b870354ea7742c"' class="battle-head" />
+
+</div>
 
 {{#if loggedin}}
-<div>
+<div class = "battle-title">
 <button id="attack-button" class="submit">Attack this meme!</button>
-</div>
 {{/if}}
+</div>
 
 <div>
   <h5 class="battle-title">VOTE THE BEST ATTACK &#x1F480</h5>
