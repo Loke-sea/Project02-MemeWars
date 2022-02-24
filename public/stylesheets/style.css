@@ -157,7 +157,9 @@ a {
   align-items:center;
 }
 
-
+.full-container{
+  height: 100vh;
+}
 
 .user{
   width: 80vw;
@@ -230,6 +232,13 @@ a {
   font-size: 60px;
 }
 
+.delete-button{
+  background-color: white;
+  border: none;
+  color: #f15a73;
+  font-size: 60px;
+}
+
 .title {
   color: #eee;
   text-align: center;
@@ -257,13 +266,17 @@ a {
   font-size: 9vw;
   font-weight: 600;
   margin-top: 60px;
-
 }
 
 .input-container {
   height: 100px;
   position: relative;
   width: 50%;
+}
+
+.input-meme{
+  display: flex;
+  flex-direction: row;
 }
 
 .ic1 {
