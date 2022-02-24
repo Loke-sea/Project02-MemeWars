@@ -95,6 +95,25 @@ a {
   align-items: stretch;
 }
 
+
+
+/***** CREATE BATTLE ***********/
+
+.caption-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 60px;
+}
+.caption{
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 1.1em;
+}
+
+
 /*----------------*/
 
 #search-form{
@@ -505,7 +524,6 @@ input:focus + label {
   font-family: sans-serif;
   font-size: 1em;
   padding: 0px 20px 0px 20px;
-  
 }
 
 
