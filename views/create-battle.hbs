@@ -1,27 +1,17 @@
 <h1 class="title-marker">Start a battle</h1>
-<div class="memes-container">
 <form action="/battles/create-battle" method="POST">
-
-<div class="caption-container">
-   <label class="caption">
+    <label class="subtitle-marker">
       Give it a title:
-      <input class="grid-child-description" type="text" name="title" required/>
+      <input type="text" name="title" required/>
     </label>
-    <label class="caption">
-      Choose from your collection:
-    </label>
-</div>
-
+    <h1 class="subtitle-marker">Choose from your collection</h1>
+    <div class="memes-container">
     {{#each user.memes}}
-      <div class="card"/>
-        <button type="submit" name="imageUrl" value="{{this.imageUrl}}"  class="like-button"> 
+      <div class="card" class="image-meme"/>
+        <button type="submit" name="imageUrl" value="{{this.imageUrl}}" class="buttons-container image-button">
         <img src="{{this.imageUrl}}" style="width: 300px" class="image-meme"/>
       </button>
       </div>
     {{/each}}
   </ul>
-
-
-
-
 </form>
