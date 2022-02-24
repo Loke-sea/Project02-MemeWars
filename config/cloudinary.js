@@ -11,7 +11,7 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
   cloudinary,
   params: {
-    allowed_formats: ['svg', 'png', 'jpg', "tif", "wep"],
+    allowed_formats: ['svg', 'png', 'jpg', "tif", "wep", "gif"],
     folder: 'cloudinary-test' // Folder name on the Cloudinary disk
   }
 })

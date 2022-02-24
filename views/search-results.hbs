@@ -1,23 +1,13 @@
-{{#if loggedin}}
-<div class="memes-container">
-{{#each resultsArray}}
-    <div class="card">
-        <img src="{{url}}" class="image-meme" alt="" srcset="">
-        <form action="/likes/add/{{id}}" method="post">
-            <input type="text" name="imageUrl" value="{{url}}" style="display: none;">
-            <button class="fa-solid fa-heart" type="submit"></button>
-        </form>
-    </div>
-{{/each}}
-</div>
+{{#if noresults}}
+
+{{> noresults this}}
 
 {{else}}
 
-<div class="memes-container">
-    {{#each resultsArray}}
-    <div class="card">
-        <img class="image-meme" src="{{url}}" alt="" srcset="">
-    </div>
-    {{/each}}
-</div>
+{{> results this}}
+
 {{/if}}
+
+
+
+

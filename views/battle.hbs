@@ -1,18 +1,20 @@
-<h1>WELLCOME TO THE BATTLE</h1>
-
-<h2>{{battle.title}}</h2>
+<h2  class="title-marker">{{battle.title}}</h2>
 
 <img src="{{battle.imageUrl}}"
   onerror='this.src = "https://cdn-icons.flaticon.com/png/512/881/premium/881284.png?token=exp=1645372280~hmac=bb856e707757023683b870354ea7742c"'>
 
 {{#if loggedin}}
-<button id="attack-button">Attack this meme!</button>
+<div>
+<button id="attack-button" class="submit">Attack this meme!</button>
+</div>
 {{/if}}
 
 <div>
-  <h2>VOTE THE BEST ATTACK</h2>
+  <h5 class="battle-title">VOTE THE BEST ATTACK &#x1F480</h5>
+  <div class="memes-container">
   {{#each battle.attacksArray}}
-  <img src="{{imageUrl}}" style="width: 300px;" alt="" srcset="">
+  <div class="card">
+  <img src="{{imageUrl}}" alt="" srcset="">
   <p>{{points}}</p>
   <form action="/battles/battle/attack/{{id}}/addpoint" method="POST">
     <button name="battleId" value="{{../battle._id}}">vote</button>
@@ -20,7 +22,9 @@
   <form action="/battles/battle/attack/{{id}}/subtractpoint" method="POST">
     <button name="battleId" value="{{../battle._id}}">downvote</button>
   </form>
+  </div>
   {{/each}}
+  </div>
 </div>
 
 {{#if isowner}}
