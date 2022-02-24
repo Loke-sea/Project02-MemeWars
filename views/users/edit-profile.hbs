@@ -8,17 +8,25 @@
     <div class="title">Edit your profile</div>
     <form class="form-auth"  action="/users/profile/edit/{{user._id}}" method="POST" enctype="multipart/form-data">
     <div class="input-container ic1">
-          <input id="firstname" class="input" type="text" name="username"  value="{{user.username}}">
+          <input id="firstname" class="input" type="text" name="username"  placeholder="username">
    </div>
    <div class="input-container ic2">
-      <input id="email" class="input" type="email" name="email" value="{{user.email}}">
+      <input id="email" class="input" type="email" name="email" placeholder="email adress">
    </div>
    <div class="input-container ic2">
-      <textarea name="description" id="description" cols="66" rows="12">{{user.description}}</textarea>
+      <textarea class="desctiption" name="description" id="description" cols="23" rows="4" placeholder="description">{{user.description}}</textarea>
    </div>
 
   <div class="input-container ic2">
-     <input class="file" type="file" name="profilePic" />
+     <div class="file-input">
+      <input id="file" class="file" type="file"  name="profilePic" />
+      <label for="file">
+         <p class="file-name"></p>
+         Select File
+         </label>
+     </div> 
+
+
   </div>
          <button type="submit" class="submit">Save changes</button>
    </form>

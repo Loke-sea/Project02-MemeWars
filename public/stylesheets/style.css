@@ -121,7 +121,7 @@ a {
   font-family: sans-serif;
   font-size: 9vw;
   font-weight: 600;
-  margin-top: 15vh;
+  margin-top: 10vh;
 }
 
 .subtitle {
@@ -132,6 +132,8 @@ a {
   font-weight: 600;
   margin-top: 25px;
 }
+
+/******FORMS**********+*/
 
 .form-auth{
   display: flex;
@@ -171,18 +173,26 @@ a {
   width: 100%;
 }
 
+.desctiption{
+  font-size: 40px;
+  font-family: sans-serif;
+  font-weight: 100;
+}
+
+/********BUTTONS**************/
 
 .submit {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background-color: #08d;
+  background: linear-gradient(40deg, #3765fa, #47d1d1);
+  /* background-color: #08d; */
   border-radius: 12px;
   padding: 40px 0px 40px 0;
   color: #eee;
   font-size: 54px;
-  margin-top: 100px;
+  margin-top: 220px;
   width: 50%;
   height: 80%;
 }
@@ -210,39 +220,74 @@ a {
 }
 
 
-.file{
-  border-radius: 12px;
-  border: 0;
-  box-sizing: border-box;
-  color: #eee;
-  text-align: center;
-  font-size: 54px;
-  outline: 0;
-  margin-top: 100px;
-  height: 100%;
-  width: 100%;
-}
-
 .delete {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background-color: rgb(241, 40, 90);
+  background: linear-gradient(40deg, #f5ad6a, #f80a0a);
+  /* background-color: rgb(241, 40, 90); */
   box-sizing: border-box;
   border-radius: 12px;
   padding: 20px 0px 20px 0;
   color: #eee;
   font-size: 40px;
-  margin-top: 60px;
-  width: 40%;
+  margin-top: 0px;
+  width: 33%;
+}
 
+/*++++ FILE SELECTOR ++++++*/
+
+.file {
+  opacity: 0;
+  width: 0.1px;
+  height: 0.1px;
+  position: absolute;
+}
+
+.file-input label {
+  display: flex;
+  align-items: center;
+  font-size: 52px;
+  justify-content: center;
+  /* background: linear-gradient(40deg, #838385, #2b2b2b); */
+  background-color: #303245;
+  border-radius: 12px;
+  border: 0;
+  box-shadow: 0 4px 7px rgba(240, 232, 232, 0.4);
+  box-sizing: border-box;
+  color: #acacac;
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: 100;
+  height: 100px;
+  width: 470px;
+  margin-top: 120px
+}
+
+.file-name {
+  position: absolute;
+  justify-content: center;
+  font-family: sans-serif;
+  font-weight: 100;
+  bottom: 67px;
+  left: 10px;
+  font-size: 2.2rem;
+  color: rgb(212, 207, 207);
+  
+}
+
+input:hover + label,
+input:focus + label {
+  transform: scale(1.02);
+}
+
+/* Adding an outline to the label on focus */
+input:focus + label {
+  outline: 1px solid #000;
+  outline: -webkit-focus-ring-color auto 2px;
 }
 
 
-
- 
-
-
-/*********AUTH VIEWS*********
+/******* PROFILE VIEW ********
 ****************************/
