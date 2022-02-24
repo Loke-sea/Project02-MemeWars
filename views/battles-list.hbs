@@ -8,11 +8,14 @@
 <div class="memes-container">
     {{#each battles}}
     <div class="card">
-        <img class="image-meme" src="{{this.imageUrl}}" alt="battle image">
-        <a class="text-black" href="/battles/battle/{{_id}}">{{this.title}}</a>
-        {{#if isMine}}
-        <div class="your-battle"><i class="fa-solid fa-user-check owner-button"></i></div>
-        {{/if}}
+        <button class="buttons-container image-button" >
+            <img class="image-meme" src="{{this.imageUrl}}" alt="battle image">
+            <a class="text-black" href="/battles/battle/{{_id}}">{{this.title}}</a>
+            {{#if isMine}}
+            <div class=" your-battle"><i class="fa-solid fa-user-check owner-button"></i>
+            </div>
+            {{/if}}
+        </button>
     </div>
     {{/each}}
 </div>

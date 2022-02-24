@@ -5,7 +5,9 @@
         <img src="{{url}}" class="image-meme" alt="" srcset="">
         <form action="/likes/add/{{id}}" method="post">
             <input type="text" name="imageUrl" value="{{url}}" style="display: none;">
-            <button class="fa-solid fa-heart" type="submit"></button>
+            <button class="like-button" type="submit">
+                <i class="fa-solid fa-heart"></i>
+            </button>
         </form>
     </div>
 {{/each}}

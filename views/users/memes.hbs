@@ -1,43 +1,37 @@
-<h1 class="title-marker">{{user.username}} 's Collection</h1>
+<h1 class="title-marker">{{user.username}}'s Collection</h1>
 
 {{#if isuser}}
 <form class="memes-container" action="{{_id}}" method="POST" enctype="multipart/form-data">
     <div class="input-meme">
-        <div class="file-input">
-            <input id="file" class="file" type="file" name="imageUrl" required/>
+        <div class="upload-image">
+            <input id="file" class="file" type="file" name="imageUrl" required />
             <label for="file">
                 <p class="file-name"></p>
                 Upload new meme
             </label>
         </div>
-    <button type="submit" class="owner-button"><i class="fa-solid fa-cloud-arrow-up"></i></button>
+        <button type="submit" class="owner-button"><i class="fa-solid fa-cloud-arrow-up"></i></button>
     </div>
 </form>
-<div class="full-container">
-    <div class="memes-container">
-        {{#each user.memes}}
-        <div class="full-container">
-            <div class="card">
-                <img class="image-meme" src="{{this.imageUrl}}">
-                <form action="/users/memes/{{_id}}/delete" method="POST">
-                    <button class="delete-button" type="submit">
-                        <i class="fa-solid fa-trash-can"></i>
-                    </button>
-                </form>
-            </div>
-        </div>
-        {{/each}}
+<div class="memes-container">
+    {{#each user.memes}}
+    <div class="card">
+        <img class="image-meme" src="{{this.imageUrl}}">
+        <form action="/users/memes/{{_id}}/delete" method="POST">
+            <button class="delete-button" type="submit">
+                <i class="fa-solid fa-trash-can"></i>
+            </button>
+        </form>
     </div>
+    {{/each}}
 </div>
 
 {{else}}
-<div class="full-container">
-    <div class="memes-container">
-        {{#each user.memes}}
-        <div class="card">
-            <img class="image-meme" src="{{this.imageUrl}}">
-        </div>
-        {{/each}}
+<div class="memes-container">
+    {{#each user.memes}}
+    <div class="card">
+        <img class="image-meme" src="{{this.imageUrl}}">
     </div>
+    {{/each}}
 </div>
 {{/if}}

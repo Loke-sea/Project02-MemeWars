@@ -1,10 +1,12 @@
 <div class="memes-container">
     <h1 class="title-marker">List of memers</h1>
     {{#each users}}
-    <div class="card user">
-        <img class="profile-image" src="{{this.profilePic}}">
-        <a href="/users/profile/{{_id}}" class="username">{{this.username}}</a>
-        <p class="description">{{this.description}}</p>
-    </div>
+    <button class="buttons-container image-button"  href="/users/profile/{{_id}}">
+        <div class="card user">
+            <img class="profile-image" src="{{this.profilePic}}">
+            <a href="/users/profile/{{_id}}" class="username">{{this.username}}</a>
+            <p class="description">{{this.description}}</p>
+        </div>
+    </button>
     {{/each}}
 </div class="memes-container">

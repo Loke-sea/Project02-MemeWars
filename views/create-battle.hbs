@@ -1,17 +1,17 @@
 <h1 class="title-marker">Start a battle</h1>
 <form action="/battles/create-battle" method="POST">
-    <label class="subtitle-marker">
-      Give it a title:
-      <input type="text" name="title" required/>
-    </label>
-    <h1 class="subtitle-marker">Choose from your collection</h1>
-    <div class="memes-container">
+  <label class="subtitle-marker">
+    <input placeholder="Name your battle" type="text" name="title" required />
+  </label>
+  <h1 class="subtitle-marker"><i class="fa-solid fa-arrow-down"></i>Choose your best meme<i
+      class="fa-solid fa-arrow-down"></i></h1>
+  <div class="memes-container">
     {{#each user.memes}}
-      <div class="card" class="image-meme"/>
-        <button type="submit" name="imageUrl" value="{{this.imageUrl}}" class="buttons-container image-button">
-        <img src="{{this.imageUrl}}" style="width: 300px" class="image-meme"/>
-      </button>
-      </div>
-    {{/each}}
+    <div class="card" class="image-meme" />
+    <button type="submit" name="imageUrl" value="{{this.imageUrl}}" class="buttons-container image-button">
+      <img src="{{this.imageUrl}}" class="image-meme" />
+    </button>
+  </div>
+  {{/each}}
   </ul>
 </form>

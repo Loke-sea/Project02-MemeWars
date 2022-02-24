@@ -1,69 +1,69 @@
-<h2  class="title-marker">{{battle.title}}</h2>
+<h2 class="title-marker">{{battle.title}}</h2>
 
 <div class="battle-head">
 
-<img src="{{battle.imageUrl}}"
-  onerror='this.src = "https://cdn-icons.flaticon.com/png/512/881/premium/881284.png?token=exp=1645372280~hmac=bb856e707757023683b870354ea7742c"' class="battle-head" />
+  <img src="{{battle.imageUrl}}"
+    onerror='this.src = "https://cdn-icons.flaticon.com/png/512/881/premium/881284.png?token=exp=1645372280~hmac=bb856e707757023683b870354ea7742c"'
+    class="battle-head" />
 
 </div>
+{{#if isowner}}
+
+<form "/battles/battles/{{battle._id}}/delete" method="POST">
+  <button class="delete-button" type="submit">
+    <i class="fa-solid fa-trash-can no-background"></i>
+  </button>
+</form>
+
+{{/if}}
 
 {{#if loggedin}}
-<div class = "battle-title">
-<button id="attack-button" class="submit">Attack this meme!</button>
-{{/if}}
+<div class="battle-title">
+  <button id="attack-button" class="submit">Attack this meme!</button>
 </div>
+<div id="display-memes" style="display: none" class="memes-container background-gray">
+
+  {{#each memesArray}}
+  <div class="memes-container">
+    <div class="card">
+      <form action="/battles/battle/attack/{{../battle._id}}" method="POST">
+        <button name="imageUrl" value="{{imageUrl}}" class="buttons-container image-button" type="submit">
+          <img src="{{imageUrl}}" class="image-meme" alt="" srcset="">
+        </button>
+      </form>
+    </div>
+  </div>
+  {{/each}}
+
+</div>
+{{/if}}
 
 <div>
   <h5 class="battle-title">VOTE THE BEST ATTACK &#x1F480</h5>
   <div class="memes-container">
-  {{#each battle.attacksArray}}
+    {{#each battle.attacksArray}}
 
-  <div class="card" >
-  <img src="{{imageUrl}}" alt="" srcset="" class="image-meme">
+    <div class="card">
+      <img src="{{imageUrl}}" alt="" srcset="" class="image-meme">
 
-  <div class="attacking">
+      <div class="attacking">
 
-  <form action="/battles/battle/attack/{{id}}/addpoint" method="POST">
-    <button name="battleId" value="{{../battle._id}}" class="thumbs-up"><i class="fa-solid fa-thumbs-up" ></i></button>
-  </form>
+        <form action="/battles/battle/attack/{{id}}/addpoint" method="POST">
+          <button name="battleId" value="{{../battle._id}}" class="thumbs-up"><i
+              class="fa-solid fa-thumbs-up"></i></button>
+        </form>
 
-  <div>{{points}}</div>
+        <div>{{points}}</div>
 
-  <form action="/battles/battle/attack/{{id}}/subtractpoint" method="POST">
-    <button name="battleId" value="{{../battle._id}}" class="thumbs-down"><i class="fa-solid fa-thumbs-down" ></i></button>
-  </form>
+        <form action="/battles/battle/attack/{{id}}/subtractpoint" method="POST">
+          <button name="battleId" value="{{../battle._id}}" class="thumbs-down"><i
+              class="fa-solid fa-thumbs-down"></i></button>
+        </form>
 
+      </div>
+
+
+    </div>
+    {{/each}}
   </div>
-
-
-  </div>
-  {{/each}}
-  </div>
-</div>
-
-{{#if isowner}}
-
-  <form action="/battles/battles/{{battle._id}}/delete" method="POST">
-    <button>Delete</button>
-  </form>
-
-{{/if}}
-
-<div id="display-memes" style="display: none" class="memes-container">
-
-  {{#each memesArray}}
-
-  <div class="card">
-
-  <img style="width: 300px" src="{{imageUrl}}" alt="" srcset="" class="image-memes">
-    <button name="imageUrl" value="{{imageUrl}}" type="submit">
-
-  <form action="/battles/battle/attack/{{../battle._id}}" method="POST">
-      Choose
-    </button>
-  </form>
-
-  </div>
-  {{/each}}
-
 </div>
