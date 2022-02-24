@@ -13,8 +13,6 @@ body {
   
 }
 
-
-
 a {
   color: #eee;
   text-decoration: none;
@@ -132,6 +130,7 @@ a {
   border-bottom-right-radius: 40px;
   transition-duration: 300ms;
   z-index: 1;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%)
 }
 
 .nav-link{
