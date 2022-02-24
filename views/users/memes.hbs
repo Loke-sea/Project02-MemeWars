@@ -12,12 +12,12 @@
 
 <ul>
     {{#each user.memes}}
-    <li>
+    
         <img src="{{this.imageUrl}}" style="width: 300px">
         <form action="/users/memes/{{_id}}/delete" method="POST">
         <button>Delete</button>
         </form>
-     </li>
+   
     {{/each}}
 </ul>
 {{else}}
