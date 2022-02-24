@@ -1,20 +1,18 @@
-<h1 class="title-marker">List of battles</h1>
-{{#if loggedin}}
-<a href="/battles/create-battle" class="battles-list-title">Create battle</a>
-{{/if}}
+<div class="memes-container">
+    <h1 class="title-marker">List of battles</h1>
+    {{#if loggedin}}
+    <a href="/battles/create-battle" class="button-title">Create battle</a>
+    {{/if}}
+</div>
 
-<ul>
+<div class="memes-container">
     {{#each battles}}
-    <div class="battles-wrapper">
-    <li class="battles-list">
-        <img src="{{this.imageUrl}}" alt="battle image" height="50px" width="80px">
-        <a href="/battles/battle/{{_id}}">{{this.title}}</a>
+    <div class="card">
+        <img class="image-meme" src="{{this.imageUrl}}" alt="battle image">
+        <a class="text-black" href="/battles/battle/{{_id}}">{{this.title}}</a>
         {{#if isMine}}
-        <div class="your-battle">THIS BATTLE IS YOURS</div>
+        <div class="your-battle"><i class="fa-solid fa-user-check owner-button"></i></div>
         {{/if}}
-        <hr>
-    </li>
     </div>
-
     {{/each}}
-</ul>
+</div>
