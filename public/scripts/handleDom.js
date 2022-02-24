@@ -11,8 +11,6 @@ function toggleDisplay(itemToDisplay, itemToHide) {
     console.log(itemToDisplay.style.display);
   }
 }
-
-window.onload = () => {
   
   document.getElementById("search-button").onclick = () => {
     let searchForm = document.getElementById("search-form")
@@ -24,16 +22,17 @@ window.onload = () => {
     let navBarLinks = document.getElementById("navbar-links-container")
     toggleDisplay(navBarLinks)
   }
-}
 
-let displayMemes = document.getElementById("display-memes").style
-
-document.getElementById("attack-button").onclick = () => {
+  
+  const attackButton = document.getElementById("attack-button")
+  
+  attackButton.addEventListener("click", () => {
+  let displayMemes = document.getElementById("display-memes")
   // document.getElementById("display-memes")
-  if (displayMemes.display === 'none') {
-    displayMemes.display = "block"
+  if (displayMemes.style.display === 'none') {
+    displayMemes.style.display = "block"
   }
   else {
-    displayMemes.display = "none"
+    displayMemes.style.display = "none"
   }
-}
+})

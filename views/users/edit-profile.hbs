@@ -8,24 +8,37 @@
     <div class="title">Edit your profile</div>
     <form class="form-auth"  action="/users/profile/edit/{{user._id}}" method="POST" enctype="multipart/form-data">
     <div class="input-container ic1">
-          <input id="firstname" class="input" type="text" name="username"  value="{{user.username}}">
+          <label class="label" for="username">Username</label>
+          <input id="firstname" class="input" type="text" name="username"  value="{{username}}">
    </div>
    <div class="input-container ic2">
-      <input id="email" class="input" type="email" name="email" value="{{user.email}}">
+       <label class="label" for="email">Email</label>
+      <input id="email" class="input" type="email" name="email" value="{{email}}">
    </div>
    <div class="input-container ic2">
-      <textarea name="description" id="description" cols="30" rows="4">{{user.description}}</textarea>
+      <label class="label" for="description">Description</label>
+      <textarea class="desctiption" name="description" id="description" cols="23" rows="4" >{{user.description}}</textarea>
    </div>
 
   <div class="input-container ic2">
-     <input class="submit" type="file" name="profilePic" />
+     <div class="file-input">
+      <input id="file" class="file" type="file"  name="profilePic" />
+      <label for="file">
+         <p class="file-name"></p>
+         Select File
+         </label>
+     </div> 
+
+
   </div>
          <button type="submit" class="submit">Save changes</button>
    </form>
+   
 
-  <form action="/users/profile/{{user._id}}/delete/" method="POST">
-              <buttonclass="submit">Delete account</button>
+  <form class="form-auth" action="/users/profile/{{user._id}}/delete/" method="POST">
+              <button class="delete">Delete account</button>
    </form>
 
 </div>
+
 
