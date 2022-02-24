@@ -2,11 +2,11 @@
 
 
 <div class="buttons-container">
-<h1 class="title-marker">{{username}} Welcome to Meme Warriors{{title}}!</h1>
     {{#if loggedout}}
 
     
     <div class="memes-container">
+<h1 class="title-marker">{{username}} Welcome to Meme Warriors{{title}}!</h1>
         {{#each memesArray}}
         <div class="card">
             <img class="image-meme" src="{{imageUrl}}" alt="" srcset="">
@@ -19,6 +19,8 @@
 </div>
 
 <div class="memes-container">
+<h1 class="title-marker">{{username}} Welcome to Meme Warriors{{title}}!</h1>
+
     {{#each memesArray}}
     <div class="card">
         <img class="image-meme" src="{{imageUrl}}" alt="" srcset="">

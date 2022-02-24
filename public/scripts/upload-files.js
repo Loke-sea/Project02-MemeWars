@@ -1,9 +1,9 @@
+console.log("UPLOAD FILE");
 
-window.onload = () => {
-
-const file = document.querySelector('#file');
+const file = document.getElementById('file');
 
 file.addEventListener('change', (e) => {
+  console.log("<<<<<<  FILE >>>>>>")
   // Get the selected file
   const [file] = e.target.files;
   // Get the file name and size
@@ -15,5 +15,3 @@ file.addEventListener('change', (e) => {
   
   document.querySelector('.file-name').textContent = fileNameAndSize;
 })
-
-}

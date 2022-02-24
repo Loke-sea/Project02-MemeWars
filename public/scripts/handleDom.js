@@ -1,48 +1,38 @@
 console.log("JS LOADED");
-let searchForm = document.getElementById("search-form")
-let searchButton = document.getElementById("search-button")
-let navBarLinks = document.getElementById("navbar-links-container")
 
 function toggleDisplay(itemToDisplay, itemToHide) {
+
   if (itemToDisplay.style.display === 'none' || itemToDisplay.style.display === '') {
     itemToDisplay.style.display = "flex"
     itemToHide.style.display = "none"
   }
   else {
     itemToDisplay.style.display = "none"
+    console.log(itemToDisplay.style.display);
   }
 }
-
-
-window.onload = () => {
+  
   document.getElementById("search-button").onclick = () => {
+    let searchForm = document.getElementById("search-form")
+    let searchButton = document.getElementById("search-button")
     toggleDisplay(searchForm, searchButton)
   }
 
   document.getElementById("menu-button").onclick = () => {
+    let navBarLinks = document.getElementById("navbar-links-container")
     toggleDisplay(navBarLinks)
   }
 
-  document.addEventListener("click", (target) => {
-    let targetPathClass = target.path[0].className
-    if (targetPathClass != "search-input" && searchForm.style.display === "flex" && targetPathClass != "fa-solid fa-magnifying-glass") {
-      searchForm.style.display = "none";
-      searchButton.style.display = "flex"
-    }
-    if (targetPathClass != "nav-link" && navBarLinks.style.display === "flex" && targetPathClass != "fa-solid fa-bars") {
-      navBarLinks.style.display = "none";
-    }
-  })
-}
-
-let displayMemes = document.getElementById("display-memes").style
-
-document.getElementById("attack-button").onclick = () => {
+  
+  const attackButton = document.getElementById("attack-button")
+  
+  attackButton.addEventListener("click", () => {
+  let displayMemes = document.getElementById("display-memes")
   // document.getElementById("display-memes")
-  if (displayMemes.display === 'none') {
-    displayMemes.display = "block"
+  if (displayMemes.style.display === 'none') {
+    displayMemes.style.display = "block"
   }
   else {
-    displayMemes.display = "none"
+    displayMemes.style.display = "none"
   }
-}
+})
