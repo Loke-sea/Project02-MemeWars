@@ -49,33 +49,6 @@ a {
 }
 
 
-<<<<<<< HEAD
-.search-form input {
-  height: 2vh;
-}
-
-
-.search-form button {
-  height: 5vh;
-  background-color: blueviolet;
-  border-radius: 20px;
-  color: aliceblue;
-  font-size: 100%;
-}
-
-.navbar-links-container{
-  display: flex;
-  flex-direction: column;
-  width: 35vw;
-  background-color: aliceblue;
-}
-
-.nav-link{
-  padding: 1vh;
-  color: black;
-}
-
-=======
 .form {
   background-color: #565b8a;
   border-radius: 20px;
@@ -160,4 +133,3 @@ a {
 
 /*********AUTH VIEWS*********
 ****************************/
->>>>>>> 065d617db902d6e45fc2e4432b936d9a127c4486
