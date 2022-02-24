@@ -54,7 +54,9 @@ a {
   font-size: 80%;
   font-family: 'Permanent Marker', cursive;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  /*justify-content: space-around;*/
 }
 
 /* ------ BATTLE VIEW ------------*/
@@ -84,6 +86,14 @@ a {
   padding: 20px;
   height: 100vh;
 }
+
+.battle-head{
+  display:flex;
+  width: 100vw;
+  align-items: stretch;
+}
+
+/*----------------*/
 
 #search-form{
   display: none;
@@ -130,6 +140,7 @@ a {
   transition-duration: 300ms;
   z-index: 1;
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%)
+
 }
 
 .nav-link{
@@ -154,6 +165,15 @@ a {
 .image-meme{
   border-radius: 30px;
   width: 70vw;
+}
+.image-button{
+  background-color: transparent;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
 }
 
 .card{
