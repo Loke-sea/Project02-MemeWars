@@ -1,34 +1,43 @@
-<h1>{{user.username}} 's Collection</h1>
+<h1 class="title-marker">{{user.username}} 's Collection</h1>
 
 {{#if isuser}}
-<form action="{{_id}}" method= "POST" enctype="multipart/form-data">
-
-    <label for="imageUrl">Image
-    <input type="file" name="imageUrl" />
-    </label>
-
-    <button type="submit">Save changes</button>
+<form class="memes-container" action="{{_id}}" method="POST" enctype="multipart/form-data">
+    <div class="input-meme">
+        <div class="file-input">
+            <input id="file" class="file" type="file" name="imageUrl" />
+            <label for="file">
+                <p class="file-name"></p>
+                Upload new meme
+            </label>
+        </div>
+    <button type="submit" class="owner-button"><i class="fa-solid fa-cloud-arrow-up"></i></button>
+    </div>
 </form>
+<div class="full-container">
+    <div class="memes-container">
+        {{#each user.memes}}
+        <div class="full-container">
+            <div class="card">
+                <img class="image-meme" src="{{this.imageUrl}}">
+                <form action="/users/memes/{{_id}}/delete" method="POST">
+                    <button class="delete-button" type="submit">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
 
-<ul>
-    {{#each user.memes}}
-    
-        <img src="{{this.imageUrl}}" style="width: 300px">
-        <form action="/users/memes/{{_id}}/delete" method="POST">
-        <button>Delete</button>
-        </form>
-   
-    {{/each}}
-</ul>
 {{else}}
-
-<ul>
-    {{#each user.memes}}
-    <li>
-        <img src="{{this.imageUrl}}" style="width: 300px">
-    </li>
-
-    {{/each}}
-</ul>
+<div class="full-container">
+    <div class="memes-container">
+        {{#each user.memes}}
+        <div class="card">
+            <img class="image-meme" src="{{this.imageUrl}}">
+        </div>
+        {{/each}}
+    </div>
+</div>
 {{/if}}
-
