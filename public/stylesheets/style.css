@@ -63,6 +63,13 @@ a {
 
 /* ------ BATTLE VIEW ------------*/
 
+.attacking{
+  width: 100%;
+  display:flex;
+  align-items: center;
+  justify-content: space-around;  
+}
+
 .battle-title{
   display: flex;
   justify-content: center;
@@ -190,6 +197,7 @@ a {
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%)
 }
 
+
 .username{
   color: #000000;
   font-size: 100px;
@@ -227,6 +235,19 @@ a {
   background-color: white;
   border: none;
   color: #7df15a;
+  font-size: 60px;
+}
+
+.thumbs-up{
+  background-color: white;
+  border: none;
+  color: #7df15a;
+  font-size: 60px;
+}
+.thumbs-down{
+  background-color: white;
+  border: none;
+  color: #e03721;
   font-size: 60px;
 }
 

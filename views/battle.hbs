@@ -17,15 +17,25 @@
   <h5 class="battle-title">VOTE THE BEST ATTACK &#x1F480</h5>
   <div class="memes-container">
   {{#each battle.attacksArray}}
-  <div class="card">
-  <img src="{{imageUrl}}" alt="" srcset="">
-  <p>{{points}}</p>
+
+  <div class="card" >
+  <img src="{{imageUrl}}" alt="" srcset="" class="image-meme">
+
+  <div class="attacking">
+
   <form action="/battles/battle/attack/{{id}}/addpoint" method="POST">
-    <button name="battleId" value="{{../battle._id}}">vote</button>
+    <button name="battleId" value="{{../battle._id}}" class="thumbs-up"><i class="fa-solid fa-thumbs-up" ></i></button>
   </form>
+
+  <div>{{points}}</div>
+
   <form action="/battles/battle/attack/{{id}}/subtractpoint" method="POST">
-    <button name="battleId" value="{{../battle._id}}">downvote</button>
+    <button name="battleId" value="{{../battle._id}}" class="thumbs-down"><i class="fa-solid fa-thumbs-down" ></i></button>
   </form>
+
+  </div>
+
+
   </div>
   {{/each}}
   </div>
@@ -39,13 +49,21 @@
 
 {{/if}}
 
-<div id="display-memes" style="display: none">
+<div id="display-memes" style="display: none" class="memes-container">
+
   {{#each memesArray}}
-  <img style="width: 300px" src="{{imageUrl}}" alt="" srcset="">
-  <form action="/battles/battle/attack/{{../battle._id}}" method="POST">
+
+  <div class="card">
+
+  <img style="width: 300px" src="{{imageUrl}}" alt="" srcset="" class="image-memes">
     <button name="imageUrl" value="{{imageUrl}}" type="submit">
+
+  <form action="/battles/battle/attack/{{../battle._id}}" method="POST">
       Choose
     </button>
   </form>
+
+  </div>
   {{/each}}
+
 </div>
