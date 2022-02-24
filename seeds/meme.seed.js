@@ -7,7 +7,8 @@ require('../app');
 const Meme = require("../models/Meme.model");
 
 const memes = [
-    { imageUrl: 'https://cdn.pocket-lint.com/r/s/1200x/assets/images/152027-apps-news-these-memes-do-not-exist-and-are-made-by-ai-image1-eh5wdqtisy.jpg' }
+    {imageUrl: 'https://i.pinimg.com/originals/79/f4/70/79f470a39dbe014b6b70a9de2981bf93.jpg'}
+   
 ]
 
 Meme.create(memes)

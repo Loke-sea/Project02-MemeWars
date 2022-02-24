@@ -6,10 +6,36 @@ body {
   background-size: cover;
 }
 
+
+.users{
+  list-style-type: none;
+  text-decoration: none;
+  
+}
+
 a {
   color: #eee;
   text-decoration: none;
+  
 }
+
+/* BATTLE LIST */
+
+.battles-list-title{
+  font-display: flex;
+  align-items: center;
+  justify-content: center;
+  color:black;
+  border: solid 1px black;
+}
+
+.battles-list{
+  list-style-type: none;
+  color: aliceblue;
+  text-decoration: none;
+  margin-right: 60px;
+}
+
 
 .title-marker{
   color: #eee;
@@ -19,6 +45,27 @@ a {
   font-size: 100%;
   letter-spacing: 1.05rem;
   font-family: 'Permanent Marker', cursive;
+  display: flex;
+  justify-content: center;
+}
+
+.subtitle-marker{
+  color: #eee;
+  text-shadow: 1px 0px 1px #000000;
+  color: #ad9999;
+  font-size: 80%;
+  font-family: 'Permanent Marker', cursive;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*justify-content: space-around;*/
+}
+
+/* ------ BATTLE VIEW ------------*/
+
+.battle-title{
+  display: flex;
+  justify-content: center;
 }
 
 .navbar {
@@ -42,6 +89,14 @@ a {
   height: 100vh;
 }
 
+.battle-head{
+  display:flex;
+  width: 100vw;
+  align-items: stretch;
+}
+
+/*----------------*/
+
 #search-form{
   display: none;
   justify-content: center;
@@ -56,6 +111,12 @@ a {
   background-color: white;
   color: black;
   font-size: 1em;
+}
+
+.no-results{
+  height: 100vh;
+  display: flex;
+  align-items: center;
 }
 
 .search-input{
@@ -91,11 +152,12 @@ a {
 }
 
 .memes-container{
-  background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(145,145,255,1) 31%, rgba(86,91,138,1) 100%);
   display: flex;
   flex-direction: column;
   align-items:center;
 }
+
+
 
 .user{
   width: 80vw;
@@ -104,6 +166,15 @@ a {
 .image-meme{
   border-radius: 30px;
   width: 70vw;
+}
+.image-button{
+  background-color: transparent;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
 }
 
 .card{
@@ -125,23 +196,38 @@ a {
   font-family: 'Permanent Marker', cursive;
 }
 
+.text-black{
+  color: black;
+  font-family: 'Permanent Marker', cursive;
+}
+
+
 .description{
   font-size: 40px;
   padding: 10vw;
 }
 
 .profile-image{
-  margin-top: 30px;
-  border-radius: 100%;
-  height: 20vh;
+  margin-top: 40px;
+  max-height: 20vh;
   width: 20vh;
+  height: 20vh;
+  border-radius: 50%;
+  object-fit: cover;
 }
+
 
 .like-button{
   background-color: white;
   border: none;
   color: #f15aa1;
   font-size: 40px;
+}
+.owner-button{
+  background-color: white;
+  border: none;
+  color: #7df15a;
+  font-size: 60px;
 }
 
 .title {
@@ -241,6 +327,20 @@ a {
   width: 50%;
   height: 80%;
 }
+.button-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(40deg, #3765fa, #47d1d1);
+  /* background-color: #08d; */
+  border-radius: 12px;
+  padding: 40px 0px 40px 0;
+  color: #eee;
+  font-size: 54px;
+  width: 50%;
+  height: 80%;
+}
 
 .index-button {
   display: flex;
@@ -262,6 +362,12 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.error{
+  color: rgb(138, 19, 19);
+  display: flex;
+  justify-content: center;
 }
 
 

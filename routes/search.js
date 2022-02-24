@@ -10,14 +10,22 @@ router.get("/", (req,res)=>{
         
         resultsArray = objectResult.data.memes;
 
+        
+        
         if(req.session.username === undefined) {
-            
-            res.render('search-results', {resultsArray})
 
-        }else{
+            if(resultsArray.length === 0) res.render ('search-results', {resultsArray, loggedout : true, noresults : true})
+            else res.render('search-results', {resultsArray, loggedout : true})
             
-            res.render('search-results', {resultsArray, loggedin : true}) 
+    
+        }else{
+
+            if(resultsArray.length === 0) res.render ('search-results', {resultsArray, loggedin : true, noresults : true}) 
+            else res.render('search-results', {resultsArray, loggedin : true}) 
         } 
+
+        
+
     })
 })
 

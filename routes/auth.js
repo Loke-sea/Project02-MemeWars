@@ -15,7 +15,7 @@ const bcrypt = require("bcrypt");
 /* GET users listing. */
 router.route("/signup")
   .get(isLoggedOut ,(req, res)  => {
-    res.render("auth/signup")
+    res.render("auth/signup", {loggedout : true})
   })
   .post((req, res) => {
     const {
@@ -31,13 +31,13 @@ router.route("/signup")
       return res
         .status(400)
         .render("auth/signup", {
-          errorMessage: "All fileds are mandatory, don't be lazy"
+          errorMessage: "All fileds are mandatory, don't be lazy", loggedout : true
         });
     };
 
     if (password.length < 4) {
       return res.status(400).render("auth/signup", {
-        errorMessage: "Your password needs to be at least 8 characters long.",
+        errorMessage: "Your password needs to be at least 8 characters long.", loggedout : true
       });
     };
 
@@ -48,8 +48,8 @@ router.route("/signup")
       if (found) {
         return res
           .status(400)
-          .render("auth.signup", {
-            errorMessage: "Email already taken."
+          .render("auth/signup", {
+            errorMessage: "Email already taken.", loggedout : true
           });
       }
       return bcrypt
@@ -76,18 +76,18 @@ router.route("/signup")
             return res
               .status(400)
               .render("auth/signup", {
-                errorMessage: error.message
+                errorMessage: error.message, loggedout : true
               });
           }
           if (error.code === 11000) {
             return res.status(400).render("auth/signup", {
-              errorMessage: "Email need to be unique. The email you chose is already in use.",
+              errorMessage: "Email need to be unique. The email you chose is already in use.", loggedout : true
             });
           }
           return res
             .status(500)
             .render("auth/signup", {
-              errorMessage: error.message
+              errorMessage: error.message, loggedout : true
             });
         });
     });
@@ -110,7 +110,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
     return res
       .status(400)
       .render("auth/login", {
-        errorMessage: "Please provide your username."
+        errorMessage: "Please provide your username.", loggedout: true
       });
   };
     // Search the database for a user with the email submitted in the form
@@ -120,7 +120,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
       if (!username) {
         return res
           .status(400)
-          .render("auth/login", { errorMessage: "Wrong credentials." });
+          .render("auth/login", { errorMessage: "Wrong credentials.", loggedout: true });
       }
 
       // If user is found based on the email, check if the in putted password matches the one saved in the database
@@ -128,7 +128,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
         if (!isSamePassword) {
           return res
             .status(400)
-            .render("auth/login", { errorMessage: "Wrong credentials." });
+            .render("auth/login", { errorMessage: "Wrong credentials.", loggedout: true });
         }
         req.session.username = username;
         // req.session.user = user._id; // ! better and safer but in this case we saving the entire user object
