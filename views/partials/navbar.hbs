@@ -1,77 +1,41 @@
-{{!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
+<nav class="navbar">
+    {{!-- <a class="navbar-brand" href="/">Meme Warriors</a> --}}
+    <div class="button-container">
+        <a id="menu-button">
+            <i class="fa-solid fa-bars"></i>
 
-        <a class="navbar-brand" href="/">Meme Warriors</a>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <div class="navbar-nav">
-
-                <span class="sr-only">(current)</span>
-                </a>
-                {{#if loggedout}}
-                <a class="nav-item nav-link" href="/memers/memers">Memers</a>
-                <a class="nav-item nav-link" href="/battles/battles">Battles</a>
-
-                {{else}}
-                <a class="nav-item nav-link" href="/memers/memers">Memers</a>
-                <a class="nav-item nav-link" href="/battles/battles">Battles</a>
-
-                <a class="nav-item nav-link" href="/users/profile/{{_id}}">My profile</a>
-                {{/if}}
-
-                <form method="get" action="/search">
-                    <input type="text" name="keywords">
-                    <button type="submit">Search</button>
-                </form>
-
-            </div>
-        </div>
+        </a>
     </div>
-</nav> --}}
-<nav class=" ">
-    <div class="">
-        <a class="" href="/">Meme Warriors</a>
 
-        <div class="" id="navbarNav">
-            <ul class="navbar-nav">
-                {{#if loggedout}}
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/memers/memers">Memers</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/battles/battles">Battles</a>
-                </li>
-                {{else}}
-                <li class="nav-item">
-                    <a class="nav-link" href="/memers/memers">Memers</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/battles/battles">Battles</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/users/profile/{{_id}}">My profile</a>
-                </li>
-                {{/if}}
+    <a href="/">
+        <img class="logo" src="/images/m-design-logo-09A5D82F03-seeklogo.com.png" alt="" srcset="">
+    </a>
 
-
-            </ul>
-        </div>
-        <form method="get" action="/search" class="input-group search-form">
-            <div class="form-outline">
-                <input type="search" name="keywords" id="form1" class="form-control" />
-                <label class="form-label" for="form1">Search</label>
-            </div>
-            <button type="submit" class="btn btn-primary">
-                <i class="fas fa-search"></i>
-            </button>
-        </form>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <div id="search-button" class="button-container">
+        <i class="fa-solid fa-magnifying-glass"></i>
     </div>
+
 </nav>
+<div id="navbar-links-container" class="navbar-links-container">
+
+    {{#if loggedout}}
+    <a class="nav-link" href="/memers/memers">Memers</a>
+    <a class="nav-link" href="/battles/battles">Battles</a>
+    <a class="nav-link" href="/auth/login">Login</a>
+    <a class="nav-link" href="/auth/signup">Signup</a>
+
+    {{else}}
+    <a class="nav-link" href="/memers/memers">Memers</a>
+    <a class="nav-link" href="/battles/battles">Battles</a>
+
+    <a class="nav-link" href="/users/profile/{{_id}}">My profile</a>
+    <a class="nav-link" href="/auth/logout">Logout</a>
+
+    {{/if}}
+
+
+</div>
+<form id="search-form" method="get" action="/search">
+    <input class="search-input" type="text" name="keywords">
+    <button type="submit"><i class="fab fa-solid fa-magnifying-glass"></i></button>
+</form>
