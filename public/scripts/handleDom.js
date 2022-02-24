@@ -1,9 +1,10 @@
 console.log("JS LOADED");
 
-function toggleDisplay(itemToDisplay) {
+function toggleDisplay(itemToDisplay, itemToHide) {
 
-  if (itemToDisplay.style.display === 'none') {
+  if (itemToDisplay.style.display === 'none' || itemToDisplay.style.display === '') {
     itemToDisplay.style.display = "flex"
+    itemToHide.style.display = "none"
   }
   else {
     itemToDisplay.style.display = "none"
@@ -12,15 +13,11 @@ function toggleDisplay(itemToDisplay) {
 }
 
 window.onload = () => {
+  
   document.getElementById("search-button").onclick = () => {
     let searchForm = document.getElementById("search-form")
-    if (searchForm.style.display === 'none') {
-      searchForm.style.display = "flex"
-      document.getElementById("search-button").style.display = "none"
-    }
-    else {
-      searchForm.style.display = "none"
-    }
+    let searchButton = document.getElementById("search-button")
+    toggleDisplay(searchForm, searchButton)
   }
 
   document.getElementById("menu-button").onclick = () => {
