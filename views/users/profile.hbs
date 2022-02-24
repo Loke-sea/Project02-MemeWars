@@ -1,52 +1,70 @@
-<h1>My profile</h1>
+<h1 class="title-marker" >My profile</h1>
 
 {{#if nouser}}
-<div>
-    <img src="{{user.profilePic}}" alt="profile" height="50px" width="50px" />
-  <br />
 
-  <h3>Name: </h3>
-  <p>{{user.username}}</p>
+<div class="container">
+  <div class="card-profile">
+        <img src="{{user.profilePic}}" alt="profile"  class="card__image" />
+        <br />
+        <p class="card__name">{{user.username}}</p>
+        <div class="grid-container">
 
-  <h3>Email: </h3>
-  <p>{{user.email}}</p>
+          <div class="grid-child-posts">
+          {{!-- <h3>Email: </h3> --}}
+          <p>{{user.email}}</p>
+          </div>
 
-  <h3>Description:</h3>
-  <p> {{user.description}}</p>
-  <br />
+          <div class="grid-child-description">
+          {{!-- <h3>Description:</h3> --}}
+          <p> {{user.description}}</p>
+          </div>
+        </div>
 
-  <button>
-    <a href="/users/memes/{{user._id}}">Collection</a>
-  </button>
+          <button class="submit profile">
+            <a href="/users/memes/{{user._id}}">Collection</a>
+          </button>
+
+  </div>
 </div>
+
+
 {{else}}
-<div>
 
-  <img src="{{user.profilePic}}" alt="profile" height="50px" width="50px" />
-  <br />
+<div class="container">
+  <div class="card-profile">
+        <img src="{{user.profilePic}}" alt="profile" class="card__image" />
+        <br />
+        <p class="card__name">{{user.username}}</p>
+        <div class="grid-container">
 
-  <h3>Name: </h3>
-  <p>{{user.username}}</p>
+          <div class="grid-child-posts">
+          {{!-- <h3>Email: </h3> --}}
+          <p>{{user.email}}</p>
+          </div>
 
-  <h3>Email: </h3>
-  <p>{{user.email}}</p>
+          <div class="grid-child-description">
+          {{!-- <h3>Description:</h3> --}}
+          <p> {{user.description}}</p>
+          </div>
+        </div>
 
-  <h3>Description:</h3>
-  <p> {{user.description}}</p>
-  <br />
+        <button class="submit profile">
+          <a href="/users/memes/{{user._id}}">My memes</a>
+        </button>
 
-  <button>
-    <a href="/users/memes/{{user._id}}">My memes</a>
-  </button>
+        <button class="submit profile">
+          <a href="/users/battles/{{user._id}}">My battles</a>
+        </button>
+        
+        <button class="submit profile">
+          <a href="/users/profile/edit/{{user._id}}">Edit profile</a>
+        </button>
 
-
-  <button>
-    <a href="/users/battles/{{user._id}}">My battles</a>
-  </button>
-  
-  <button>
-    <a href="/users/profile/edit/{{user._id}}">Edit profile</a>
-  </button>
-
+  </div>
 </div>
+
 {{/if}}
+
+
+
+
