@@ -1,9 +1,9 @@
 body {
   padding: 0;
   margin: 0;
-  height: 100vh;
   font: 400% sans-serif;
   background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(145,145,255,1) 31%, rgba(86,91,138,1) 100%);
+  background-size: cover;
 }
 
 
@@ -22,6 +22,9 @@ a {
 /* BATTLE LIST */
 
 .battles-list-title{
+  font-display: flex;
+  align-items: center;
+  justify-content: center;
   color:black;
   border: solid 1px black;
 }
@@ -33,10 +36,6 @@ a {
   margin-right: 60px;
 }
 
-.your-battle{
-  color:black;
-  font-size: 20%;
-}
 
 .title-marker{
   color: #eee;
@@ -141,11 +140,12 @@ a {
 }
 
 .memes-container{
-  background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(145,145,255,1) 31%, rgba(86,91,138,1) 100%);
   display: flex;
   flex-direction: column;
   align-items:center;
 }
+
+
 
 .user{
   width: 80vw;
@@ -175,23 +175,38 @@ a {
   font-family: 'Permanent Marker', cursive;
 }
 
+.text-black{
+  color: black;
+  font-family: 'Permanent Marker', cursive;
+}
+
+
 .description{
   font-size: 40px;
   padding: 10vw;
 }
 
 .profile-image{
-  margin-top: 30px;
-  border-radius: 100%;
-  height: 20vh;
+  margin-top: 40px;
+  max-height: 20vh;
   width: 20vh;
+  height: 20vh;
+  border-radius: 50%;
+  object-fit: cover;
 }
+
 
 .like-button{
   background-color: white;
   border: none;
   color: #f15aa1;
   font-size: 40px;
+}
+.owner-button{
+  background-color: white;
+  border: none;
+  color: #7df15a;
+  font-size: 60px;
 }
 
 .title {
@@ -283,6 +298,20 @@ a {
   color: #eee;
   font-size: 54px;
   margin-top: 220px;
+  width: 50%;
+  height: 80%;
+}
+.button-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(40deg, #3765fa, #47d1d1);
+  /* background-color: #08d; */
+  border-radius: 12px;
+  padding: 40px 0px 40px 0;
+  color: #eee;
+  font-size: 54px;
   width: 50%;
   height: 80%;
 }
