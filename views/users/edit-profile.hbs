@@ -8,15 +8,15 @@
     <div class="title">Edit your profile</div>
     <form class="form-auth"  action="/users/profile/edit/{{user._id}}" method="POST" enctype="multipart/form-data">
     <div class="input-container ic1">
-          <label class="label" for="username">Username</label>
-          <input id="firstname" class="input" type="text" name="username"  value="{{username}}">
+          <label class="label" for="username">Username:</label>
+          <input id="firstname" class="input" type="text" name="username"  value="{{user.username}}">
    </div>
    <div class="input-container ic2">
-       <label class="label" for="email">Email</label>
-      <input id="email" class="input" type="email" name="email" value="{{email}}">
+       <label class="label" for="email">Email:</label>
+      <input id="email" class="input" type="email" name="email" value="{{user.email}}">
    </div>
-   <div class="input-container ic2">
-      <label class="label" for="description">Description</label>
+   <div class="input-container ic3">
+      <label class="label lb" for="description">Description:</label>
       <textarea class="desctiption" name="description" id="description" cols="23" rows="4" >{{user.description}}</textarea>
    </div>
 
