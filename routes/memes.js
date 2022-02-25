@@ -56,7 +56,6 @@ router.route("/:id")
 router.post("/:id/delete", (req, res)=>{
     const id = req.params.id
     const userId = req.session.username._id
-    console.log("UserID", userId);
     Meme.findByIdAndDelete(id)
     .then(res.redirect(`/users/memes/${userId}`))
 })

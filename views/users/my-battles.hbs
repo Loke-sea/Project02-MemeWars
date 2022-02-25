@@ -1,8 +1,13 @@
 <h1 class="title-marker">My battles</h1>
+
+<div class="memes-container">
 {{#each battles}}
-<ul>
-    <li>
-        <a href="/battles/battle/{{_id}}">{{title}}</a>
-    </li>
-</ul>
+<div class="card" >
+    <button class="buttons-container image-button">
+    <img class="image-meme" src="{{this.imageUrl}}" alt="meme">
+    <a class="text-black" href="/battles/battle/{{_id}}">{{title}}</a>
+    </button>
+</div>
 {{/each}}
+ <a href="/battles/create-battle" class="button-title">Create battle</a>
+</div>
