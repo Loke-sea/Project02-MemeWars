@@ -37,7 +37,7 @@ router.get('/', (req, res) => {
         res.render('index', { memesArray, loggedout: true })
       }
       else {
-        res.render('index', { memesArray, _id: req.session.username._id })
+        res.render('index', { memesArray, _id: req.session.username._id, username: req.session.username.username})
       }
     })
 });
